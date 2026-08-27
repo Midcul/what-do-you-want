@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dprg8ap1gytl4"]
 
 [ext_resource type="Texture2D" uid="uid://wf6kl21rub5s" path="res://art/food/jelly.png" id="1_ktfjk"]
+[ext_resource type="Script" uid="uid://bu4iio3vtocb" path="res://scenes/customer.gd" id="1_xss0h"]
+[ext_resource type="PackedScene" uid="uid://bqogf4td7b5oy" path="res://scenes/customer_ui.tscn" id="3_8qg4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfjk"]
 size = Vector2(40, 40)
@@ -9,6 +11,7 @@ size = Vector2(40, 40)
 height = 70.0
 
 [node name="Customer" type="CharacterBody2D" unique_id=611496562]
+script = ExtResource("1_xss0h")
 
 [node name="Customer_Texture" type="TextureRect" parent="." unique_id=1974360880]
 offset_left = -20.0
@@ -21,6 +24,36 @@ texture = ExtResource("1_ktfjk")
 shape = SubResource("RectangleShape2D_ktfjk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1830783283 groups=["customer"]]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=846295348]
 shape = SubResource("CapsuleShape2D_xd7ib")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1075401084]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -41.0
+offset_right = 77.0
+offset_bottom = -26.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1768299062]
+unique_name_in_owner = true
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Customer_UI" parent="." unique_id=1248095599 instance=ExtResource("3_8qg4y")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

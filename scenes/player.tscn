@@ -29,9 +29,9 @@ offset_bottom = -1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2023644071]
 unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
 
 [node name="Collection_Zone" type="CollisionShape2D" parent="Area2D" unique_id=1882891748]
-light_mask = 2
-visibility_layer = 2
 position = Vector2(21, -4)
 shape = SubResource("CapsuleShape2D_xd7ib")
