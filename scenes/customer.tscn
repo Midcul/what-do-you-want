@@ -9,19 +9,18 @@ size = Vector2(40, 40)
 height = 70.0
 
 [node name="Customer" type="CharacterBody2D" unique_id=611496562]
-position = Vector2(-20, -20)
 
 [node name="Customer_Texture" type="TextureRect" parent="." unique_id=1974360880]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 texture = ExtResource("1_ktfjk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823843315]
-position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_ktfjk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1830783283 groups=["customer"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=846295348]
-position = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_xd7ib")

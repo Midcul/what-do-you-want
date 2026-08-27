@@ -10,9 +10,9 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		var interact = %Area2D.get_overlapping_areas()[0]
-		if interact.is_in_group("food") and not curr_food:
-			interact.get_parent().grab_order()
+		var interact = %Area2D.get_overlapping_areas()
+		if interact and interact[0].is_in_group("food") and not curr_food:
+			interact[0].get_parent().grab_order()
 
 func collect_item(food) -> void:
 	%Held_Item.texture = load(InitDishes.get_image_path(food))
