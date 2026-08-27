@@ -1,23 +1,32 @@
 extends Node2D
 
-func score(selection: Array[int], truth: Array[int]) -> int:
-	# Each dish is represented as a one-hot vector of qualities
+func update_notes(state: Array[int], update: Array[int]) -> Array[int]:
+	# State is a vector with all known order information in it
+	# This function pushes an update (e.g., a whole dish, one tag) to state
 	
-	# This function counts the number of matches
-	# 2 = both True, 0 = both False
+	# 0 NO
+	# 1 YES
+	# 2 Possible trait
+	for i in range(update.size()):
+		if update[i] != 2:
+			state[i] = update[i]
+	return state
 	
-	# If we end up creating lots of possible traits, these one-hot vectors may be sparse
-	# For now, I'll count positive matches (True-True), but not negative matches (False-False) 
-	var comparison = selection + truth
-	return comparison.count(2)
+func get_possible(state: Array[int], pool: Array) -> Array:
+	# Given a state, find all dishes in the pool that the state could describe
+	# This should be used to check answers, or to guide the search engine
 	
-func generate_order(truth: Array[int], pool: Array[Array], min_df: int, max_df: int) -> Array[Array]:
-	# Filter all dishes by a specific range of matching qualities. This way, different clients
-	# can have different behavior
-	var possible = []
-	
+	var ret = []
 	for dish in pool:
-		if min_df < score(dish, truth) and score(dish, truth) < max_df:
-			possible.append(dish)
-			
-	return possible
+		var flag = false
+		
+		for i in range(state.size()):
+			if state[i] == 2:
+				continue
+			if dish[i] != state[i]:
+				flag = true
+		
+		if not flag:
+			ret.append(dish)
+	
+	return ret
