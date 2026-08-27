@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dprg8ap1gytl4"]
+
+[ext_resource type="Texture2D" uid="uid://wf6kl21rub5s" path="res://art/food/jelly.png" id="1_ktfjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfjk"]
+size = Vector2(40, 40)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd7ib"]
+height = 70.0
+
+[node name="Customer" type="CharacterBody2D" unique_id=611496562]
+position = Vector2(-20, -20)
+
+[node name="Customer_Texture" type="TextureRect" parent="." unique_id=1974360880]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ktfjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823843315]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_ktfjk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1830783283 groups=["customer"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=846295348]
+position = Vector2(20, 20)
+shape = SubResource("CapsuleShape2D_xd7ib")
