@@ -4,7 +4,11 @@
 [ext_resource type="Script" uid="uid://nwdtbmp6su8t" path="res://scenes/level.gd" id="1_w7c3h"]
 [ext_resource type="Texture2D" uid="uid://b6t5r00hqu4ue" path="res://art/bg/restaurant.png" id="2_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://dbbu2jai85r2e" path="res://scenes/tablet.tscn" id="3_w8frs"]
+[ext_resource type="Texture2D" uid="uid://dl345ugvmi3us" path="res://art/ui/button_white.png" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://cfhia44io63sm" path="res://scenes/player.tscn" id="5_ppgk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i7tk"]
+size = Vector2(52, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd7ib"]
 size = Vector2(330.5, 167)
@@ -43,20 +47,105 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(581, 136)
 
+[node name="Tray1" type="TextureRect" parent="Orders" unique_id=140306056]
+offset_left = -212.0
+offset_top = -23.0
+offset_right = -152.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray2" type="TextureRect" parent="Orders" unique_id=943227691]
+offset_left = -122.0
+offset_top = -23.0
+offset_right = -62.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray3" type="TextureRect" parent="Orders" unique_id=816480182]
+offset_left = -32.0
+offset_top = -23.0
+offset_right = 28.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray4" type="TextureRect" parent="Orders" unique_id=375711323]
+offset_left = 58.0
+offset_top = -23.0
+offset_right = 118.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray5" type="TextureRect" parent="Orders" unique_id=273960169]
+offset_left = 148.0
+offset_top = -23.0
+offset_right = 208.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
 [node name="Marker1" type="Marker2D" parent="Orders" unique_id=1628990620]
+unique_name_in_owner = true
 position = Vector2(-182, -3)
 
+[node name="Area2D" type="Area2D" parent="Orders/Marker1" unique_id=529990602 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker1/Area2D" unique_id=729904652]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
 [node name="Marker2" type="Marker2D" parent="Orders" unique_id=2016801385]
+unique_name_in_owner = true
 position = Vector2(-92, -3)
 
+[node name="Area2D" type="Area2D" parent="Orders/Marker2" unique_id=592923839 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker2/Area2D" unique_id=1411413297]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
 [node name="Marker3" type="Marker2D" parent="Orders" unique_id=1866879084]
+unique_name_in_owner = true
 position = Vector2(-2, -3)
 
+[node name="Area2D" type="Area2D" parent="Orders/Marker3" unique_id=1371135241 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker3/Area2D" unique_id=1032231889]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
 [node name="Marker4" type="Marker2D" parent="Orders" unique_id=412635906]
+unique_name_in_owner = true
 position = Vector2(88, -3)
 
+[node name="Area2D" type="Area2D" parent="Orders/Marker4" unique_id=53840746 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker4/Area2D" unique_id=1375193985]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
 [node name="Marker5" type="Marker2D" parent="Orders" unique_id=1853031477]
+unique_name_in_owner = true
 position = Vector2(178, -3)
+
+[node name="Area2D" type="Area2D" parent="Orders/Marker5" unique_id=109327723 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker5/Area2D" unique_id=1270620833]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
 
 [node name="Seats" type="Node2D" parent="." unique_id=1151838283]
 unique_name_in_owner = true
