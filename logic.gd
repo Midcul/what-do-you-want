@@ -2,41 +2,34 @@ extends Node2D
 
 @onready var menu = InitDishes.menu
 
-func update_notes(state: Array[int], update: Array[int]) -> Array[int]:
+func update_notes(state: Array[Array], update: Array[int]) -> Array[Array]:
 	# State is a vector with all known order information in it
 	# This function pushes an update (e.g., a whole dish, one tag) to state
 	
-	# 0 NO
-	# 1 YES
-	# 2 Possible trait
 	for i in range(update.size()):
 		# TEMPORARY -- ONLY ACCOMMODATING POSITIVE CLUES. ADD AN ARGUMENT TO CHANGE BEHAVIOR
-		if update[i] != 0:
-			state[i] = update[i]
+		state[i].append(update[i])
 	return state
 	
-func get_possible(state: Array[int], pool: Array = menu.keys()) -> Array:
+func get_possible(state: Array[Array], pool: Array = menu.keys()) -> Array:
 	# Given a state, find all dishes in the pool that the state could describe
 	# This should be used to check answers, or to guide the search engine
 	
 	var ret = []
 	for dish in pool:
-		var flag = false
-		var dish_as_vec = dish2vec(dish)
+		var check = []
+		var dish_as_vec = dish2vec(dish, 1)
 		
-		for i in range(state.size()):
-			if state[i] == 2:
-				continue
-				
-			if dish_as_vec[i] != state[i]:
-				flag = true
+		for i in range(dish_as_vec.size()):
+			if dish_as_vec[i] == 1:
+				check.append_array(state[i])
 		
-		if not flag:
+		if 1 in check and 2 in check and 3 in check:
 			ret.append(dish)
 	
 	return ret
 
-func dish2vec(dish: String) -> Array[int]:
+func dish2vec(dish: String, dish_seq: int) -> Array[int]:
 	var ret: Array[int] = []
 	ret.resize(12)
 	ret.fill(0)
@@ -50,7 +43,7 @@ func dish2vec(dish: String) -> Array[int]:
 	for i in ['Tag1', 'Tag2', 'Tag3']:
 		var tag = menu[dish][i]
 		var num = word2element[tag]
-		ret[num] = 2
+		ret[num] = dish_seq
 	return ret
 
 func select_from_menu(menu: Dictionary) -> Array:
@@ -59,15 +52,21 @@ func select_from_menu(menu: Dictionary) -> Array:
 	return keys.slice(0, 3)
 
 func create_quadruplet(character: String):
-	var state: Array[int] = []
+	var state: Array[Array] = []
 	state.resize(12)
 	state.fill(0)
 	
 	var hints = select_from_menu(menu)
-	for hint in hints:
-		state = update_notes(state, dish2vec(hint))
+	for hint_seq in range(hints.size()):
+		state = update_notes(state, dish2vec(hints[hint_seq], hint_seq + 1))
 	
-	hints.append(get_possible(state))
+	var answers = get_possible(state)
+		
+	for ans in get_possible(state):
+		if ans in hints:
+			answers.erase(ans)
+	
+	hints.append(answers)
 	return hints
 	
 func _ready():
