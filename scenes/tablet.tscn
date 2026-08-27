@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://dbbu2jai85r2e"]
+
+[ext_resource type="Script" uid="uid://b8kvviqn0ri57" path="res://scenes/tablet.gd" id="1_2qyfy"]
+[ext_resource type="Texture2D" uid="uid://bpvdfpg44vx1j" path="res://art/food/fries.png" id="2_jwrmr"]
+[ext_resource type="Texture2D" uid="uid://b4l8qivfx2o5l" path="res://art/ui/button.png" id="3_suit2"]
+[ext_resource type="Texture2D" uid="uid://b5udoy1dv02f6" path="res://art/food/banoffe.png" id="4_5ctd3"]
+
+[sub_resource type="TileSet" id="TileSet_xd7ib"]
+
+[node name="Tablet" type="Node2D" unique_id=1349250485]
+script = ExtResource("1_2qyfy")
+
+[node name="Canvas" type="CanvasLayer" parent="." unique_id=1977676398]
+unique_name_in_owner = true
+visible = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Canvas" unique_id=1479559167]
+tile_set = SubResource("TileSet_xd7ib")
+
+[node name="Frame" type="ColorRect" parent="Canvas" unique_id=733536977]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8627451)
+
+[node name="TabletScreen" type="ColorRect" parent="Canvas" unique_id=533413873]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -217.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Canvas/TabletScreen" unique_id=152928256]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Food_Img" type="TextureRect" parent="Canvas/TabletScreen" unique_id=1796224094]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 167.0
+offset_top = 153.0
+offset_right = 367.0
+offset_bottom = 353.0
+texture = ExtResource("2_jwrmr")
+
+[node name="Food_Name" type="Label" parent="Canvas/TabletScreen" unique_id=1665762890]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -265.0
+offset_top = 32.0
+offset_right = -111.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Food 1"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Canvas" unique_id=994583541]
+offset_left = 52.0
+offset_top = 127.0
+offset_right = 551.0
+offset_bottom = 172.0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Tag1" type="Label" parent="Canvas/HBoxContainer" unique_id=237933666]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tag1"
+horizontal_alignment = 1
+
+[node name="Separator" type="Label" parent="Canvas/HBoxContainer" unique_id=1024974840]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "|"
+horizontal_alignment = 1
+
+[node name="Tag2" type="Label" parent="Canvas/HBoxContainer" unique_id=884974335]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tag2"
+horizontal_alignment = 1
+
+[node name="Separator2" type="Label" parent="Canvas/HBoxContainer" unique_id=2015269128]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "|"
+horizontal_alignment = 1
+
+[node name="Tag3" type="Label" parent="Canvas/HBoxContainer" unique_id=893461149]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tag3"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Canvas" unique_id=924054480]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 26.0
+offset_right = 357.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu_Options" type="VBoxContainer" parent="Canvas/ScrollContainer" unique_id=778854444]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="TextureButton" parent="Canvas/ScrollContainer/Menu_Options" unique_id=445722087]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_suit2")
+stretch_mode = 0
+
+[node name="Button2" type="Button" parent="Canvas/ScrollContainer/Menu_Options" unique_id=1501049473]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Test 2"
+
+[node name="Order" type="TextureButton" parent="Canvas" unique_id=1887681671]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 214.0
+offset_top = 479.0
+offset_right = 364.0
+offset_bottom = 529.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_suit2")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Canvas/Order" unique_id=647406921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Order"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="Canvas" unique_id=720779257]
+modulate = Color(0.27996668, 0.2799667, 0.27996662, 1)
+custom_minimum_size = Vector2(67, 67)
+offset_left = 1065.0
+offset_top = 15.0
+offset_right = 1132.0
+offset_bottom = 82.0
+texture_normal = ExtResource("4_5ctd3")
+stretch_mode = 0
+
+[connection signal="pressed" from="Canvas/Order" to="." method="_on_order_pressed"]
+[connection signal="pressed" from="Canvas/Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bex0xq4h0e2nd"]
+
+[ext_resource type="Texture2D" uid="uid://b5udoy1dv02f6" path="res://art/food/banoffe.png" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://nwdtbmp6su8t" path="res://scenes/level.gd" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://b6t5r00hqu4ue" path="res://art/bg/restaurant.png" id="2_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://dbbu2jai85r2e" path="res://scenes/tablet.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cfhia44io63sm" path="res://scenes/player.tscn" id="5_ppgk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd7ib"]
+size = Vector2(330.5, 167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj53s"]
+size = Vector2(496, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nje8q"]
+size = Vector2(1153, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw7d2"]
+size = Vector2(21, 673)
+
+[node name="Level" type="Node2D" unique_id=2052457525]
+script = ExtResource("1_w7c3h")
+
+[node name="BG" type="TextureRect" parent="." unique_id=652106789]
+custom_minimum_size = Vector2(1152, 648)
+custom_maximum_size = Vector2(1152, 648)
+offset_right = 2360.0
+offset_bottom = 1640.0
+texture = ExtResource("2_mx8sn")
+
+[node name="Tablet_Button" type="TextureButton" parent="." unique_id=1565379225]
+offset_left = 1065.0
+offset_top = 15.0
+offset_right = 1132.0
+offset_bottom = 82.0
+texture_normal = ExtResource("1_2q6dc")
+stretch_mode = 0
+
+[node name="Tablet" parent="." unique_id=1349250485 instance=ExtResource("3_w8frs")]
+unique_name_in_owner = true
+
+[node name="Orders" type="Node2D" parent="." unique_id=1097370960]
+unique_name_in_owner = true
+position = Vector2(581, 136)
+
+[node name="Seats" type="Node2D" parent="." unique_id=1151838283]
+
+[node name="Seat1" type="Marker2D" parent="Seats" unique_id=1357077862]
+position = Vector2(73, 277)
+
+[node name="Player" parent="." unique_id=1897640557 instance=ExtResource("5_ppgk2")]
+unique_name_in_owner = true
+position = Vector2(552, 535)
+
+[node name="Barrier" type="StaticBody2D" parent="." unique_id=838736703]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier" unique_id=128812299]
+position = Vector2(159.75, 85.5)
+shape = SubResource("RectangleShape2D_xd7ib")
+
+[node name="Barrier2" type="StaticBody2D" parent="." unique_id=955815291]
+position = Vector2(74, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2" unique_id=1220792639]
+position = Vector2(916.5, 89)
+shape = SubResource("RectangleShape2D_xd7ib")
+
+[node name="Barrier3" type="StaticBody2D" parent="." unique_id=270350936]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier3" unique_id=1569838604]
+position = Vector2(575, 51.5)
+shape = SubResource("RectangleShape2D_aj53s")
+
+[node name="Barrier4" type="StaticBody2D" parent="." unique_id=64084181]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier4" unique_id=2103251200]
+position = Vector2(575.5, 658)
+shape = SubResource("RectangleShape2D_nje8q")
+
+[node name="Barrier5" type="StaticBody2D" parent="." unique_id=1541131977]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier5" unique_id=1990879459]
+position = Vector2(-9.5, 326.5)
+shape = SubResource("RectangleShape2D_hw7d2")
+
+[node name="Barrier6" type="StaticBody2D" parent="." unique_id=1094082833]
+position = Vector2(1172, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier6" unique_id=367983738]
+position = Vector2(-9.5, 326.5)
+shape = SubResource("RectangleShape2D_hw7d2")
+
+[connection signal="pressed" from="Tablet_Button" to="." method="_on_tablet_pressed"]

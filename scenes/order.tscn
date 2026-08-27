@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cn8lyif51lwhd"]
+
+[ext_resource type="Script" uid="uid://d0ibtpscydto7" path="res://scenes/order.gd" id="1_1jo6x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd7ib"]
+height = 116.0
+
+[node name="Order" type="Node2D" unique_id=619208273]
+script = ExtResource("1_1jo6x")
+
+[node name="Texture" type="TextureRect" parent="." unique_id=923007143]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+offset_right = 75.0
+offset_bottom = 75.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2127440976 groups=["food"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=893554050]
+position = Vector2(40, 31)
+shape = SubResource("CapsuleShape2D_xd7ib")
