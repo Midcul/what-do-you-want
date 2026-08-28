@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bg4amgx238vg8"]
+
+[ext_resource type="Script" uid="uid://cxgynsw87dyl" path="res://scenes/pause_ui.gd" id="1_qunyi"]
+
+[node name="PauseUI" type="CanvasLayer" unique_id=1897717807]
+process_mode = 2
+script = ExtResource("1_qunyi")
+
+[node name="PauseUIControl" type="Control" parent="." unique_id=1564448236]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="PauseBG" type="ColorRect" parent="PauseUIControl" unique_id=200078880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.10980392, 0.14901961, 0.49019608)
+
+[node name="PauseUILabel" type="Label" parent="PauseUIControl" unique_id=395427879]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_top = 30.0
+offset_right = 139.0
+offset_bottom = 129.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 72
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="PauseUIButtonControl" type="Control" parent="PauseUIControl" unique_id=2027292229]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -120.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="PauseUIButtonContainer" type="SplitContainer" parent="PauseUIControl/PauseUIButtonControl" unique_id=1185330387]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_visual_only = false
+split_offsets = PackedInt32Array(0, 0, 0)
+dragging_enabled = false
+vertical = true
+metadata/_edit_group_ = true
+
+[node name="PauseResumeButton" type="Button" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer" unique_id=1055562108]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="PauseRestartButton" type="Button" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer" unique_id=514488650]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart"
+
+[node name="PauseQuitButton" type="Button" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer" unique_id=1951219462]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="PauseVolumeControl" type="VSplitContainer" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer" unique_id=1130656085]
+layout_mode = 2
+size_flags_vertical = 3
+dragging_enabled = false
+
+[node name="PauseVolumeLabel" type="Label" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl" unique_id=1653744528]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Volume"
+
+[node name="PauseVolumeSlider" type="HSlider" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl" unique_id=1883182524]
+layout_mode = 2
+
+[connection signal="pressed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseResumeButton" to="." method="_on_pause_resume_button_pressed"]
+[connection signal="pressed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseRestartButton" to="." method="_on_pause_restart_button_pressed"]
+[connection signal="pressed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseQuitButton" to="." method="_on_pause_quit_button_pressed"]
+[connection signal="value_changed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl/PauseVolumeSlider" to="." method="_on_pause_volume_slider_value_changed"]

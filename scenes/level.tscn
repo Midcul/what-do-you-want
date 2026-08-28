@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dbbu2jai85r2e" path="res://scenes/tablet.tscn" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://dl345ugvmi3us" path="res://art/ui/button_white.png" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://cfhia44io63sm" path="res://scenes/player.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://bg4amgx238vg8" path="res://scenes/PauseUI.tscn" id="7_klq6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i7tk"]
 size = Vector2(52, 27)
@@ -217,4 +218,7 @@ position = Vector2(1172, 5)
 position = Vector2(-9.5, 326.5)
 shape = SubResource("RectangleShape2D_hw7d2")
 
+[node name="PauseUI" parent="." unique_id=1897717807 instance=ExtResource("7_klq6b")]
+
 [connection signal="pressed" from="Tablet_Button" to="." method="_on_tablet_pressed"]
+[connection signal="pause_request" from="Player" to="PauseUI" method="_on_player_pause_request"]

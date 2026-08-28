@@ -7,7 +7,6 @@ var curr_order
 func _ready() -> void:
 	clear_menu()
 	load_menu()
-	get_menu_data(%Menu_Options.get_child(0), "Peach Cobbler")
 	
 func hide_tablet() -> void:
 	%Canvas.hide()

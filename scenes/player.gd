@@ -1,8 +1,14 @@
 extends CharacterBody2D
 signal place_food(food, tray)
+signal pause_request()
 
 @export var speed: float = 400.0
 var curr_food
+
+func _pausecheck():
+	if Input.is_action_just_pressed("ui_cancel"):
+		emit_signal("pause_request")
+		get_tree().paused = true
 
 func _physics_process(delta: float) -> void:
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -38,3 +44,7 @@ func collect_item(food) -> void:
 func drop_item() -> void:
 	%Held_Item.texture = null
 	curr_food = null
+	
+#Runtime Functionality
+func _process(delta):
+	_pausecheck()
