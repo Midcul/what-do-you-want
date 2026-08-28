@@ -1,74 +1,81 @@
 extends Node2D
 
 @onready var menu = InitDishes.menu
+const color = ['White', 'Green', 'Red', 'Yellow']
+const composition = ['Handheld', 'Medley', 'Pasta', 'Soup']
+const taste = ['Cheesy', 'Fishy', 'Meaty', 'Veggie']
 
-func update_notes(state: Array[Array], update: Array[int]) -> Array[Array]:
-	# State is a vector with all known order information in it
-	# This function pushes an update (e.g., a whole dish, one tag) to state
+func generate_positive_quadruplet_from_dishes() -> Array[String]:
+	var tags: Array[String] = []
+	var decoys: Array[String] = []
+	var tri: Array[String]
+	var ans: String
 	
-	for i in range(update.size()):
-		# TEMPORARY -- ONLY ACCOMMODATING POSITIVE CLUES. ADD AN ARGUMENT TO CHANGE BEHAVIOR
-		state[i].append(update[i])
-	return state
+	for i in [color, composition, taste]:
+		var temp = i.duplicate()
+		temp.shuffle()
+		var selections = temp.slice(0, 2)
+		tags.append(selections[0])
+		decoys.append(selections[1])
 	
-func get_possible(state: Array[Array], pool: Array = menu.keys()) -> Array:
-	# Given a state, find all dishes in the pool that the state could describe
-	# This should be used to check answers, or to guide the search engine
-	
-	var ret = []
-	for dish in pool:
-		var check = []
-		var dish_as_vec = dish2vec(dish, 1)
+	for value in menu.values():
+		var traits = [value['Tag1'], value['Tag2'], value['Tag3']]
+		if traits == tags:
+			ans = value['Dish Name']
 		
-		for i in range(dish_as_vec.size()):
-			if dish_as_vec[i] == 1:
-				check.append_array(state[i])
+		if traits in [[tags[0], tags[1], decoys[2]], [tags[0], decoys[1], tags[2]], [decoys[0], tags[1], tags[2]]]:
+			tri.append(value['Dish Name'])
+	
+	tri.shuffle()
+	tri.append(ans)
+	return tri
+
+func generate_negative_quadruplet_from_dishes() -> Array[String]:
+	var tags: Array[String] = []
+	var decoys: Array[Array] = [[], [], []]
+	var tri: Array[String]
+	var ans: String
+	
+	for i in [color, composition, taste]:
+		var temp = i.duplicate()
+		var selection = i.pick_random()
+		tags.append(selection)
+		temp.erase(selection)
+		temp.shuffle()
+		for j in range(temp.size()):
+			decoys[j].append(temp[j])
 		
-		if 1 in check and 2 in check and 3 in check:
-			ret.append(dish)
-	
-	return ret
-
-func dish2vec(dish: String, dish_seq: int) -> Array[int]:
-	var ret: Array[int] = []
-	ret.resize(12)
-	ret.fill(0)
-	# white, green, red, yellow
-	# handheld, medley, pasta, soup
-	# cheesy, fishy, meaty, veggie
-	const word2element = {'White': 0, 'Green': 1, 'Red': 2, 'Yellow': 3,
-	'Handheld': 4, 'Medley': 5, 'Pasta': 6, 'Soup': 7,
-	'Cheesy': 8, 'Fishy': 9, 'Meaty': 10, 'Veggie': 11}
-	
-	for i in ['Tag1', 'Tag2', 'Tag3']:
-		var tag = menu[dish][i]
-		var num = word2element[tag]
-		ret[num] = dish_seq
-	return ret
-
-func select_from_menu(menu: Dictionary) -> Array:
-	var keys = menu.keys()
-	keys.shuffle()
-	return keys.slice(0, 3)
-
-func create_quadruplet(character: String):
-	var state: Array[Array] = []
-	state.resize(12)
-	state.fill(0)
-	
-	var hints = select_from_menu(menu)
-	for hint_seq in range(hints.size()):
-		state = update_notes(state, dish2vec(hints[hint_seq], hint_seq + 1))
-	
-	var answers = get_possible(state)
+	for value in menu.values():
+		var traits = [value['Tag1'], value['Tag2'], value['Tag3']]
+		if traits == tags:
+			ans = value['Dish Name']
 		
-	for ans in get_possible(state):
-		if ans in hints:
-			answers.erase(ans)
+		if traits in decoys:
+			tri.append(value['Dish Name'])
 	
-	hints.append(answers)
-	return hints
+	tri.shuffle()
+	tri.append(ans)
+	return tri
+
+func generate_positive_quadruplet_from_tags() -> Array[String]:
+	var tags: Array[String] = []
+	var ans: String
 	
+	for i in [color, composition, taste]:
+		tags.append(i.pick_random())
+		
+	for value in menu.values():
+		var traits = [value['Tag1'], value['Tag2'], value['Tag3']]
+		if traits == tags:
+			ans = value['Dish Name']
+			break
+		
+	tags.shuffle()
+	tags.append(ans)
+	return tags
+
 func _ready():
-	print(create_quadruplet(""))
+	print(generate_positive_quadruplet_from_dishes())
+	print(generate_negative_quadruplet_from_dishes())
+	print(generate_positive_quadruplet_from_tags())
 	
