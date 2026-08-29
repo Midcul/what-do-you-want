@@ -1,31 +1,38 @@
 [gd_scene format=3 uid="uid://cfhia44io63sm"]
 
 [ext_resource type="Script" uid="uid://vnsb5hae6tqw" path="res://scenes/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://gmkhmovwk07x" path="res://art/food/waffle.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://cgcambriqk060" path="res://art/animals/player character.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://dxo48nsvxx1ob" path="res://sfx/twostep.wav" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd7ib"]
 size = Vector2(42, 39)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd7ib"]
-height = 84.0
+radius = 31.0
+height = 92.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1897640557]
 script = ExtResource("1_3vyb7")
 
 [node name="Player_Texture" type="TextureRect" parent="." unique_id=1741787928]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -48.0
+offset_top = -92.5
+offset_right = 592.0
+offset_bottom = 657.5
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1698026331]
-position = Vector2(20, 19.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_xd7ib")
 
 [node name="Held_Item" type="TextureRect" parent="." unique_id=1619449726]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
 offset_top = -41.0
 offset_right = 40.0
 offset_bottom = -1.0
+expand_mode = 1
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2023644071]
 unique_name_in_owner = true
@@ -33,5 +40,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Collection_Zone" type="CollisionShape2D" parent="Area2D" unique_id=1882891748]
-position = Vector2(21, -4)
+y_sort_enabled = true
+position = Vector2(0, -28)
 shape = SubResource("CapsuleShape2D_xd7ib")
+
+[node name="Steps" type="AudioStreamPlayer" parent="." unique_id=974525513]
+unique_name_in_owner = true
+stream = ExtResource("3_qhqgy")

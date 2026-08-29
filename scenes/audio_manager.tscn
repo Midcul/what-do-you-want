@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://beue3671xvcbe"]
+
+[ext_resource type="Script" uid="uid://dal36yrla573h" path="res://scenes/audio_manager.gd" id="1_8qd8g"]
+[ext_resource type="AudioStream" uid="uid://dxo48nsvxx1ob" path="res://sfx/twostep.wav" id="2_liach"]
+
+[node name="AudioManager" type="AudioStreamPlayer" unique_id=2140065362]
+script = ExtResource("1_8qd8g")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1783938837]
+unique_name_in_owner = true
+
+[node name="Sfx" type="AudioStreamPlayer" parent="." unique_id=338139153]
+unique_name_in_owner = true
+max_polyphony = 8
+
+[node name="Steps" type="AudioStreamPlayer" parent="." unique_id=1942132469]
+unique_name_in_owner = true
+stream = ExtResource("2_liach")
+pitch_scale = 0.6
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

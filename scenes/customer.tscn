@@ -1,26 +1,31 @@
 [gd_scene format=3 uid="uid://dprg8ap1gytl4"]
 
-[ext_resource type="Texture2D" uid="uid://wf6kl21rub5s" path="res://art/food/jelly.png" id="1_ktfjk"]
 [ext_resource type="Script" uid="uid://bu4iio3vtocb" path="res://scenes/customer.gd" id="1_xss0h"]
+[ext_resource type="Texture2D" uid="uid://oqcam2p15nxb" path="res://art/animals/bear.png" id="2_8qg4y"]
 [ext_resource type="PackedScene" uid="uid://bqogf4td7b5oy" path="res://scenes/customer_ui.tscn" id="3_8qg4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfjk"]
-size = Vector2(40, 40)
+size = Vector2(62, 97)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd7ib"]
-height = 70.0
+radius = 33.0
+height = 76.0
 
 [node name="Customer" type="CharacterBody2D" unique_id=611496562]
+y_sort_enabled = true
 script = ExtResource("1_xss0h")
 
 [node name="Customer_Texture" type="TextureRect" parent="." unique_id=1974360880]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-texture = ExtResource("1_ktfjk")
+unique_name_in_owner = true
+offset_left = -48.0
+offset_top = -92.5
+offset_right = 592.0
+offset_bottom = 657.5
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_8qg4y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823843315]
+position = Vector2(1, -28.5)
 shape = SubResource("RectangleShape2D_ktfjk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1830783283 groups=["customer"]]
@@ -28,6 +33,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=846295348]
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_xd7ib")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1075401084]
@@ -38,10 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -77.0
-offset_top = -41.0
-offset_right = 77.0
-offset_bottom = -26.5
+offset_left = -57.0
+offset_top = -99.0
+offset_right = 58.0
+offset_bottom = -84.5
 grow_horizontal = 2
 grow_vertical = 2
 value = 100.0
@@ -55,5 +61,33 @@ autostart = true
 
 [node name="Customer_UI" parent="." unique_id=1248095599 instance=ExtResource("3_8qg4y")]
 unique_name_in_owner = true
+
+[node name="Priority" type="RichTextLabel" parent="." unique_id=1492804372]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -20.0
+offset_right = 76.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Pick me first!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start_Pos" type="Marker2D" parent="." unique_id=1393108952]
+unique_name_in_owner = true
+position = Vector2(-75, -44)
+
+[node name="End_Pos" type="Marker2D" parent="." unique_id=1975600387]
+unique_name_in_owner = true
+position = Vector2(-75, -132)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

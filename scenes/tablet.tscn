@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dbbu2jai85r2e"]
 
 [ext_resource type="Script" uid="uid://b8kvviqn0ri57" path="res://scenes/tablet.gd" id="1_2qyfy"]
+[ext_resource type="Texture2D" uid="uid://bujketkh1r65" path="res://art/ui/tablet_no_hand.png" id="2_1e7px"]
 [ext_resource type="Texture2D" uid="uid://bpvdfpg44vx1j" path="res://art/food/fries.png" id="2_jwrmr"]
 [ext_resource type="Texture2D" uid="uid://b4l8qivfx2o5l" path="res://art/ui/button.png" id="3_suit2"]
-[ext_resource type="Texture2D" uid="uid://b5udoy1dv02f6" path="res://art/food/banoffe.png" id="4_5ctd3"]
+[ext_resource type="Texture2D" uid="uid://dqdi43br2e4j2" path="res://art/ui/tablet_screen.png" id="5_1e7px"]
+[ext_resource type="Texture2D" uid="uid://du7ai1l24vdyo" path="res://art/ui/filter.png" id="5_nk2fr"]
 
 [sub_resource type="TileSet" id="TileSet_xd7ib"]
 
@@ -25,60 +27,64 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8627451)
 
-[node name="TabletScreen" type="ColorRect" parent="Canvas" unique_id=533413873]
+[node name="TabletScreen" type="TextureRect" parent="Canvas" unique_id=574385516]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 25.0
-offset_right = -217.0
-offset_bottom = -25.0
+offset_left = -192.0
+offset_top = -26.0
+offset_right = 131.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_1e7px")
+expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="Canvas/TabletScreen" unique_id=152928256]
+[node name="ColorRect" type="ColorRect" parent="Canvas" unique_id=152928256]
 visible = false
-layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_right = 4.0
+offset_left = -34.5
+offset_top = 25.0
+offset_right = -30.5
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Food_Img" type="TextureRect" parent="Canvas/TabletScreen" unique_id=1796224094]
+[node name="Food_Img" type="TextureRect" parent="Canvas" unique_id=1796224094]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 167.0
-offset_top = 153.0
-offset_right = 367.0
-offset_bottom = 353.0
+custom_minimum_size = Vector2(300, 300)
+offset_left = 172.0
+offset_top = 178.0
+offset_right = 472.0
+offset_bottom = 478.0
 texture = ExtResource("2_jwrmr")
+expand_mode = 1
 
-[node name="Food_Name" type="Label" parent="Canvas/TabletScreen" unique_id=1665762890]
+[node name="Food_Name" type="RichTextLabel" parent="Canvas" unique_id=1829607252]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -265.0
-offset_top = 32.0
-offset_right = -111.0
-offset_bottom = 99.0
+offset_left = -427.0
+offset_top = 57.0
+offset_right = -69.0
+offset_bottom = 164.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 36
 text = "Food 1"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Canvas" unique_id=994583541]
-offset_left = 52.0
-offset_top = 127.0
-offset_right = 551.0
-offset_bottom = 172.0
+offset_left = 120.0
+offset_top = 163.0
+offset_right = 537.0
+offset_bottom = 208.0
 theme_override_constants/separation = 12
 alignment = 1
 
@@ -86,14 +92,14 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Tag1"
 horizontal_alignment = 1
 
 [node name="Separator" type="Label" parent="Canvas/HBoxContainer" unique_id=1024974840]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "|"
 horizontal_alignment = 1
 
@@ -101,14 +107,14 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Tag2"
 horizontal_alignment = 1
 
 [node name="Separator2" type="Label" parent="Canvas/HBoxContainer" unique_id=2015269128]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "|"
 horizontal_alignment = 1
 
@@ -116,7 +122,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Tag3"
 horizontal_alignment = 1
 
@@ -125,10 +131,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 26.0
-offset_right = 357.0
-offset_bottom = -27.0
+offset_left = -4.000061
+offset_top = 58.0
+offset_right = 461.0
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -138,7 +144,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Button" type="TextureButton" parent="Canvas/ScrollContainer/Menu_Options" unique_id=445722087]
-custom_minimum_size = Vector2(250, 70)
+custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -154,9 +160,9 @@ text = "Test 2"
 
 [node name="Order" type="TextureButton" parent="Canvas" unique_id=1887681671]
 custom_minimum_size = Vector2(150, 50)
-offset_left = 214.0
+offset_left = 244.0
 offset_top = 479.0
-offset_right = 364.0
+offset_right = 394.0
 offset_bottom = 529.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -179,12 +185,102 @@ vertical_alignment = 1
 [node name="Exit" type="TextureButton" parent="Canvas" unique_id=720779257]
 modulate = Color(0.27996668, 0.2799667, 0.27996662, 1)
 custom_minimum_size = Vector2(67, 67)
-offset_left = 1065.0
+offset_left = 1062.0
 offset_top = 15.0
-offset_right = 1132.0
-offset_bottom = 82.0
-texture_normal = ExtResource("4_5ctd3")
+offset_right = 2982.0
+offset_bottom = 1095.0
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("5_1e7px")
 stretch_mode = 0
+
+[node name="Filter" type="TextureButton" parent="Canvas" unique_id=1680633101]
+unique_name_in_owner = true
+offset_left = 513.0
+offset_top = 61.000034
+offset_right = 1025.0
+offset_bottom = 573.00006
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_nk2fr")
+stretch_mode = 0
+
+[node name="LineEdit" type="LineEdit" parent="Canvas" unique_id=1582752228]
+visible = false
+offset_left = 584.0
+offset_top = 39.0
+offset_right = 1007.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Search for food item here"
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Filter_Layer" type="CanvasLayer" parent="." unique_id=1425394937]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="Screen" type="TextureRect" parent="Filter_Layer" unique_id=314605563]
+offset_left = -192.0
+offset_top = -26.0
+offset_right = 1291.0
+offset_bottom = 662.0
+texture = ExtResource("2_1e7px")
+expand_mode = 1
+
+[node name="Filters" type="GridContainer" parent="Filter_Layer/Screen" unique_id=1641522055]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -101.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="Filter_Button" type="TextureButton" parent="Filter_Layer/Screen" unique_id=414820736]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.5)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -158.0
+offset_right = 225.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_suit2")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Filter_Layer/Screen/Filter_Button" unique_id=1669923484]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "Filter"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Canvas/Order" to="." method="_on_order_pressed"]
 [connection signal="pressed" from="Canvas/Exit" to="." method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="Canvas/Filter" to="." method="_on_filter_mouse_entered"]
+[connection signal="mouse_exited" from="Canvas/Filter" to="." method="_on_filter_mouse_exited"]
+[connection signal="pressed" from="Canvas/Filter" to="." method="_on_filter_pressed"]
+[connection signal="mouse_entered" from="Filter_Layer/Screen/Filter_Button" to="." method="_on_filter_mouse_entered"]
+[connection signal="mouse_exited" from="Filter_Layer/Screen/Filter_Button" to="." method="_on_filter_mouse_exited"]
+[connection signal="pressed" from="Filter_Layer/Screen/Filter_Button" to="." method="_on_filter_button_pressed"]

@@ -1,21 +1,28 @@
 [gd_scene format=3 uid="uid://bex0xq4h0e2nd"]
 
-[ext_resource type="Texture2D" uid="uid://b5udoy1dv02f6" path="res://art/food/banoffe.png" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://nwdtbmp6su8t" path="res://scenes/level.gd" id="1_w7c3h"]
-[ext_resource type="Texture2D" uid="uid://b6t5r00hqu4ue" path="res://art/bg/restaurant.png" id="2_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://5iq7s34a2qem" path="res://art/bg/restaurant (full).png" id="2_olg7q"]
+[ext_resource type="Texture2D" uid="uid://d1e77hngfngog" path="res://art/bg/chair.png" id="3_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://dbbu2jai85r2e" path="res://scenes/tablet.tscn" id="3_w8frs"]
-[ext_resource type="Texture2D" uid="uid://dl345ugvmi3us" path="res://art/ui/button_white.png" id="5_2r41h"]
+[ext_resource type="Texture2D" uid="uid://cx6j2r3kqeycn" path="res://art/bg/table.png" id="4_8iemx"]
+[ext_resource type="Texture2D" uid="uid://dh1rj4g1beuj6" path="res://art/bg/The Chef.png" id="5_64w2a"]
 [ext_resource type="PackedScene" uid="uid://cfhia44io63sm" path="res://scenes/player.tscn" id="5_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://bg4amgx238vg8" path="res://scenes/PauseUI.tscn" id="7_klq6b"]
+[ext_resource type="Texture2D" uid="uid://br3d4ke5mws1i" path="res://art/bg/tray.png" id="5_t1rx8"]
+[ext_resource type="Texture2D" uid="uid://bujketkh1r65" path="res://art/ui/tablet_no_hand.png" id="6_fpun6"]
+[ext_resource type="Texture2D" uid="uid://cgcambriqk060" path="res://art/animals/player character.png" id="7_klq6b"]
+[ext_resource type="Texture2D" uid="uid://dqdi43br2e4j2" path="res://art/ui/tablet_screen.png" id="7_wc255"]
+[ext_resource type="Texture2D" uid="uid://nlarqn5qkb4f" path="res://art/ui/box.png" id="8_b121j"]
+[ext_resource type="Texture2D" uid="uid://dexbdloeg6a6y" path="res://art/ui/next_day.png" id="9_8c41q"]
+[ext_resource type="Texture2D" uid="uid://2oibyv8e83iv" path="res://art/ui/retry.png" id="10_olg7q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i7tk"]
 size = Vector2(52, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd7ib"]
-size = Vector2(330.5, 167)
+size = Vector2(330.5, 167.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj53s"]
-size = Vector2(496, 107)
+size = Vector2(496, 171)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nje8q"]
 size = Vector2(1153, 20)
@@ -31,14 +38,151 @@ custom_minimum_size = Vector2(1152, 648)
 custom_maximum_size = Vector2(1152, 648)
 offset_right = 2360.0
 offset_bottom = 1640.0
-texture = ExtResource("2_mx8sn")
+texture = ExtResource("2_olg7q")
+
+[node name="Chair" type="TextureRect" parent="BG" unique_id=1979250300]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 196.0
+offset_right = 115.0
+offset_bottom = 316.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+
+[node name="Table" type="TextureRect" parent="BG" unique_id=1311018123]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 222.0
+offset_right = 288.0
+offset_bottom = 322.0
+texture = ExtResource("4_8iemx")
+expand_mode = 1
+
+[node name="Chair2" type="TextureRect" parent="BG" unique_id=1356559205]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 196.0
+offset_right = 402.0
+offset_bottom = 316.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+flip_h = true
+
+[node name="Chair3" type="TextureRect" parent="BG" unique_id=356791715]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 449.0
+offset_right = 115.0
+offset_bottom = 569.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+
+[node name="Table2" type="TextureRect" parent="BG" unique_id=1286604322]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 459.0
+offset_right = 288.0
+offset_bottom = 559.0
+texture = ExtResource("4_8iemx")
+expand_mode = 1
+
+[node name="Chair4" type="TextureRect" parent="BG" unique_id=1822183259]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 449.0
+offset_right = 402.0
+offset_bottom = 569.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+flip_h = true
+
+[node name="Chair5" type="TextureRect" parent="BG" unique_id=431705954]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 449.0
+offset_right = 854.0
+offset_bottom = 569.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+
+[node name="Table3" type="TextureRect" parent="BG" unique_id=834433133]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 459.0
+offset_right = 1027.0
+offset_bottom = 559.0
+texture = ExtResource("4_8iemx")
+expand_mode = 1
+
+[node name="Chair6" type="TextureRect" parent="BG" unique_id=1998576982]
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 449.0
+offset_right = 1141.0
+offset_bottom = 569.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+flip_h = true
+
+[node name="Chair7" type="TextureRect" parent="BG" unique_id=1066371605]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 196.0
+offset_right = 854.0
+offset_bottom = 316.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+
+[node name="Table4" type="TextureRect" parent="BG" unique_id=2028132546]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 206.0
+offset_right = 1027.0
+offset_bottom = 306.0
+texture = ExtResource("4_8iemx")
+expand_mode = 1
+
+[node name="Chair8" type="TextureRect" parent="BG" unique_id=2143971337]
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 196.0
+offset_right = 1141.0
+offset_bottom = 316.0
+texture = ExtResource("3_t1rx8")
+expand_mode = 1
+flip_h = true
+
+[node name="Chef" type="TextureRect" parent="BG" unique_id=907173271]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 453.0
+offset_top = -12.000003
+offset_right = 870.0
+offset_bottom = 353.0
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("5_64w2a")
+
+[node name="Start" type="Marker2D" parent="BG" unique_id=686017148]
+unique_name_in_owner = true
+position = Vector2(422, -8)
+scale = Vector2(0.34, 0.34)
+
+[node name="End" type="Marker2D" parent="BG" unique_id=1691428679]
+unique_name_in_owner = true
+position = Vector2(694.00006, -8)
+scale = Vector2(0.34, 0.34)
 
 [node name="Tablet_Button" type="TextureButton" parent="." unique_id=1565379225]
-offset_left = 1065.0
-offset_top = 15.0
-offset_right = 1132.0
-offset_bottom = 82.0
-texture_normal = ExtResource("1_2q6dc")
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.5)
+offset_left = 1062.0
+offset_top = 10.0
+offset_right = 2982.0
+offset_bottom = 1090.0
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("6_fpun6")
+texture_hover = ExtResource("7_wc255")
 stretch_mode = 0
 
 [node name="Tablet" parent="." unique_id=1349250485 instance=ExtResource("3_w8frs")]
@@ -53,35 +197,40 @@ offset_left = -212.0
 offset_top = -23.0
 offset_right = -152.0
 offset_bottom = 17.0
-texture = ExtResource("5_2r41h")
+texture = ExtResource("5_t1rx8")
+expand_mode = 1
 
 [node name="Tray2" type="TextureRect" parent="Orders" unique_id=943227691]
 offset_left = -122.0
 offset_top = -23.0
 offset_right = -62.0
 offset_bottom = 17.0
-texture = ExtResource("5_2r41h")
+texture = ExtResource("5_t1rx8")
+expand_mode = 1
 
 [node name="Tray3" type="TextureRect" parent="Orders" unique_id=816480182]
 offset_left = -32.0
 offset_top = -23.0
 offset_right = 28.0
 offset_bottom = 17.0
-texture = ExtResource("5_2r41h")
+texture = ExtResource("5_t1rx8")
+expand_mode = 1
 
 [node name="Tray4" type="TextureRect" parent="Orders" unique_id=375711323]
 offset_left = 58.0
 offset_top = -23.0
 offset_right = 118.0
 offset_bottom = 17.0
-texture = ExtResource("5_2r41h")
+texture = ExtResource("5_t1rx8")
+expand_mode = 1
 
 [node name="Tray5" type="TextureRect" parent="Orders" unique_id=273960169]
 offset_left = 148.0
 offset_top = -23.0
 offset_right = 208.0
 offset_bottom = 17.0
-texture = ExtResource("5_2r41h")
+texture = ExtResource("5_t1rx8")
+expand_mode = 1
 
 [node name="Marker1" type="Marker2D" parent="Orders" unique_id=1628990620]
 unique_name_in_owner = true
@@ -152,28 +301,28 @@ shape = SubResource("RectangleShape2D_7i7tk")
 unique_name_in_owner = true
 
 [node name="Seat1" type="Marker2D" parent="Seats" unique_id=1357077862]
-position = Vector2(73, 277)
+position = Vector2(73, 255)
 
 [node name="Seat2" type="Marker2D" parent="Seats" unique_id=885464487]
-position = Vector2(347, 277)
+position = Vector2(347, 255)
 
 [node name="Seat3" type="Marker2D" parent="Seats" unique_id=240835061]
-position = Vector2(73, 568)
+position = Vector2(73, 507)
 
 [node name="Seat4" type="Marker2D" parent="Seats" unique_id=96511566]
-position = Vector2(347, 568)
+position = Vector2(347, 507)
 
 [node name="Seat5" type="Marker2D" parent="Seats" unique_id=257428609]
-position = Vector2(812, 277)
+position = Vector2(812, 255)
 
 [node name="Seat6" type="Marker2D" parent="Seats" unique_id=770211732]
-position = Vector2(1085, 277)
+position = Vector2(1085, 255)
 
 [node name="Seat7" type="Marker2D" parent="Seats" unique_id=841274809]
-position = Vector2(812, 568)
+position = Vector2(812, 507)
 
 [node name="Seat8" type="Marker2D" parent="Seats" unique_id=166378812]
-position = Vector2(1085, 568)
+position = Vector2(1085, 507)
 
 [node name="Player" parent="." unique_id=1897640557 instance=ExtResource("5_ppgk2")]
 unique_name_in_owner = true
@@ -189,13 +338,13 @@ shape = SubResource("RectangleShape2D_xd7ib")
 position = Vector2(74, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2" unique_id=1220792639]
-position = Vector2(916.5, 89)
+position = Vector2(916.5, 85.25)
 shape = SubResource("RectangleShape2D_xd7ib")
 
 [node name="Barrier3" type="StaticBody2D" parent="." unique_id=270350936]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier3" unique_id=1569838604]
-position = Vector2(575, 51.5)
+position = Vector2(575, 83.5)
 shape = SubResource("RectangleShape2D_aj53s")
 
 [node name="Barrier4" type="StaticBody2D" parent="." unique_id=64084181]
@@ -218,7 +367,105 @@ position = Vector2(1172, 5)
 position = Vector2(-9.5, 326.5)
 shape = SubResource("RectangleShape2D_hw7d2")
 
-[node name="PauseUI" parent="." unique_id=1897717807 instance=ExtResource("7_klq6b")]
+[node name="Timer" type="Timer" parent="." unique_id=1464272115]
+unique_name_in_owner = true
+one_shot = true
 
+[node name="Results" type="CanvasLayer" parent="." unique_id=1765678785]
+unique_name_in_owner = true
+visible = false
+
+[node name="BG" type="ColorRect" parent="Results" unique_id=444059940]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" type="TextureRect" parent="Results" unique_id=1310362208]
+offset_left = 30.0
+offset_top = 108.0
+offset_right = 430.0
+offset_bottom = 558.0
+texture = ExtResource("7_klq6b")
+expand_mode = 1
+
+[node name="Results_Box" type="TextureRect" parent="Results" unique_id=173912916]
+offset_left = 428.0
+offset_top = 34.0
+offset_right = 1086.0
+offset_bottom = 460.0
+texture = ExtResource("8_b121j")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Results/Results_Box" unique_id=1043314484]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 650.0
+offset_bottom = 420.0
+
+[node name="Results" type="RichTextLabel" parent="Results/Results_Box/VBoxContainer" unique_id=216322801]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 56
+bbcode_enabled = true
+text = "[b]RESULTS![/b]
+Customers Satisfied"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="RichTextLabel" parent="Results/Results_Box/VBoxContainer" unique_id=1240845172]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_font_size = 116
+bbcode_enabled = true
+text = "[b]5 / 7[/b]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Outcome" type="RichTextLabel" parent="Results/Results_Box/VBoxContainer" unique_id=2054324402]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "SUCCESS!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Proceed" type="TextureButton" parent="Results/Results_Box" unique_id=2048739538]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 444.0
+offset_right = 957.0
+offset_bottom = 741.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_8c41q")
+stretch_mode = 0
+
+[node name="Retry" type="TextureButton" parent="Results/Results_Box" unique_id=500169750]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 444.0
+offset_right = 957.0
+offset_bottom = 741.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_olg7q")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="Tablet_Button" to="." method="_on_tablet_button_mouse_entered"]
+[connection signal="mouse_exited" from="Tablet_Button" to="." method="_on_tablet_button_mouse_exited"]
 [connection signal="pressed" from="Tablet_Button" to="." method="_on_tablet_pressed"]
-[connection signal="pause_request" from="Player" to="PauseUI" method="_on_player_pause_request"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Results/Results_Box/Proceed" to="." method="_on_proceed_pressed"]
+[connection signal="pressed" from="Results/Results_Box/Retry" to="." method="_on_retry_pressed"]

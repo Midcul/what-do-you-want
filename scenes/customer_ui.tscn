@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bqogf4td7b5oy"]
 
 [ext_resource type="Script" uid="uid://bctedsx4n3p3f" path="res://scenes/customer_ui.gd" id="1_81ih1"]
-[ext_resource type="Texture2D" uid="uid://dtlx8ojtqjo72" path="res://art/bg/bear.png" id="2_81ih1"]
 [ext_resource type="Texture2D" uid="uid://bym4scxqir5r7" path="res://art/ui/dialogue.png" id="2_yoejo"]
 [ext_resource type="Texture2D" uid="uid://b5udoy1dv02f6" path="res://art/food/banoffe.png" id="3_1f7rl"]
+[ext_resource type="Texture2D" uid="uid://c7v5n4lpnnsgr" path="res://art/food/3-2-2 redfish tacos.png" id="3_ynnu0"]
 [ext_resource type="Texture2D" uid="uid://b4l8qivfx2o5l" path="res://art/ui/button.png" id="4_tqg12"]
+[ext_resource type="Texture2D" uid="uid://oqcam2p15nxb" path="res://art/animals/bear.png" id="5_tqg12"]
 
 [node name="Customer_UI" type="Node2D" unique_id=1248095599]
 script = ExtResource("1_81ih1")
@@ -20,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8627451)
 
-[node name="TabletScreen" type="ColorRect" parent="CanvasLayer" unique_id=334577362]
+[node name="ConvoScreen" type="ColorRect" parent="CanvasLayer" unique_id=334577362]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,7 +32,7 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/TabletScreen" unique_id=1493838589]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/ConvoScreen" unique_id=1493838589]
 unique_name_in_owner = true
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
@@ -42,7 +43,7 @@ offset_bottom = 153.0
 value = 100.0
 show_percentage = false
 
-[node name="Dialogue_Box" type="TextureRect" parent="CanvasLayer/TabletScreen" unique_id=804629125]
+[node name="Dialogue_Box" type="TextureRect" parent="CanvasLayer/ConvoScreen" unique_id=804629125]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -57,40 +58,50 @@ grow_vertical = 2
 texture = ExtResource("2_yoejo")
 expand_mode = 1
 
-[node name="ClueContainer" type="VBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box" unique_id=1040196310]
+[node name="Scroll" type="ScrollContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box" unique_id=2020361683]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 149.0
+offset_left = 145.0
 offset_top = 7.0
-offset_right = 572.0
-offset_bottom = 499.0
+offset_right = 573.0
+offset_bottom = 500.0
+horizontal_scroll_mode = 3
 
-[node name="Clue1" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=555803221]
+[node name="ClueContainer" type="VBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll" unique_id=1040196310]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(428, 493)
+layout_mode = 2
+
+[node name="Clue1" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=555803221]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
 text = "Can I have a Key Lime Pie?"
 fit_content = true
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=527218687]
+[node name="Box1" type="HBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=527218687]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Pic1" type="TextureRect" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer" unique_id=1247789203]
+[node name="Pic1" type="TextureRect" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box1" unique_id=1247789203]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-texture = ExtResource("3_1f7rl")
+texture = ExtResource("3_ynnu0")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer" unique_id=590915632]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box1" unique_id=590915632]
 layout_mode = 2
 alignment = 1
 
-[node name="Elaborate1" type="TextureButton" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer/VBoxContainer" unique_id=1416061017]
+[node name="Elaborate1" type="TextureButton" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box1/VBoxContainer" unique_id=1416061017]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 60)
@@ -98,7 +109,8 @@ layout_mode = 2
 texture_normal = ExtResource("4_tqg12")
 stretch_mode = 0
 
-[node name="Text" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer/VBoxContainer/Elaborate1" unique_id=1657503980]
+[node name="Text1" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box1/VBoxContainer/Elaborate1" unique_id=1657503980]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,10 +122,10 @@ text = "Can you elaborate?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Answer1" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer/VBoxContainer" unique_id=1839564655]
+[node name="Answer1" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box1/VBoxContainer" unique_id=1839564655]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(300, 60)
+custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
@@ -122,7 +134,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buffer" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=1582132245]
+[node name="Buffer" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=1582132245]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 16
@@ -130,32 +142,36 @@ text = " "
 fit_content = true
 vertical_alignment = 1
 
-[node name="Clue2" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=35280158]
+[node name="Clue2" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=35280158]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
 text = "Actually, can I have Ravioli instead?"
 fit_content = true
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=589597117]
+[node name="Box2" type="HBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=589597117]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Pic2" type="TextureRect" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer2" unique_id=1876518236]
+[node name="Pic2" type="TextureRect" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box2" unique_id=1876518236]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 texture = ExtResource("3_1f7rl")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer2" unique_id=801744937]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box2" unique_id=801744937]
 layout_mode = 2
 alignment = 1
 
-[node name="Elaborate2" type="TextureButton" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer2/VBoxContainer" unique_id=1550056492]
+[node name="Elaborate2" type="TextureButton" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box2/VBoxContainer" unique_id=1550056492]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 60)
@@ -163,7 +179,8 @@ layout_mode = 2
 texture_normal = ExtResource("4_tqg12")
 stretch_mode = 0
 
-[node name="Text" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer2/VBoxContainer/Elaborate2" unique_id=1608254395]
+[node name="Text2" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box2/VBoxContainer/Elaborate2" unique_id=1608254395]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,10 +192,10 @@ text = "Can you elaborate?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Answer2" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer2/VBoxContainer" unique_id=711703259]
+[node name="Answer2" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box2/VBoxContainer" unique_id=711703259]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(300, 60)
+custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
@@ -187,7 +204,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buffer2" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=356368990]
+[node name="Buffer2" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=356368990]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 16
@@ -195,32 +212,36 @@ text = " "
 fit_content = true
 vertical_alignment = 1
 
-[node name="Clue3" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=1775653895]
+[node name="Clue3" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=1775653895]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
 text = "Mm, nevermind. I want Fries."
 fit_content = true
 vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer" unique_id=373879478]
+[node name="Box3" type="HBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer" unique_id=373879478]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Pic3" type="TextureRect" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer3" unique_id=468874865]
+[node name="Pic3" type="TextureRect" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box3" unique_id=468874865]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 texture = ExtResource("3_1f7rl")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer3" unique_id=2116696764]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box3" unique_id=2116696764]
 layout_mode = 2
 alignment = 1
 
-[node name="Elaborate3" type="TextureButton" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer3/VBoxContainer" unique_id=999679109]
+[node name="Elaborate3" type="TextureButton" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box3/VBoxContainer" unique_id=999679109]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 60)
@@ -228,7 +249,8 @@ layout_mode = 2
 texture_normal = ExtResource("4_tqg12")
 stretch_mode = 0
 
-[node name="Text" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer3/VBoxContainer/Elaborate3" unique_id=519427118]
+[node name="Text3" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box3/VBoxContainer/Elaborate3" unique_id=519427118]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,10 +262,10 @@ text = "Can you elaborate?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Answer3" type="RichTextLabel" parent="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer3/VBoxContainer" unique_id=1960439593]
+[node name="Answer3" type="RichTextLabel" parent="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box3/VBoxContainer" unique_id=1960439593]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(300, 60)
+custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
@@ -252,18 +274,18 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Customer_Img" type="TextureRect" parent="CanvasLayer/TabletScreen" unique_id=372325631]
+[node name="Customer_Img" type="TextureRect" parent="CanvasLayer/ConvoScreen" unique_id=372325631]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 0
-offset_left = 167.0
-offset_top = 196.0
-offset_right = 367.0
-offset_bottom = 521.0
-texture = ExtResource("2_81ih1")
+offset_left = 128.0
+offset_top = 189.0
+offset_right = 382.0
+offset_bottom = 514.0
+texture = ExtResource("5_tqg12")
 expand_mode = 1
 
-[node name="Customer_Name" type="Label" parent="CanvasLayer/TabletScreen" unique_id=438984340]
+[node name="Customer_Name" type="Label" parent="CanvasLayer/ConvoScreen" unique_id=438984340]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -281,19 +303,33 @@ horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1036189647]
 unique_name_in_owner = true
+wait_time = 0.5
 one_shot = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1445382430]
 unique_name_in_owner = true
+wait_time = 0.5
 one_shot = true
 
 [node name="Timer3" type="Timer" parent="." unique_id=1987390929]
 unique_name_in_owner = true
+wait_time = 0.5
 one_shot = true
 
-[connection signal="pressed" from="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer/VBoxContainer/Elaborate1" to="." method="_on_elaborate_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer2/VBoxContainer/Elaborate2" to="." method="_on_elaborate_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/TabletScreen/Dialogue_Box/ClueContainer/HBoxContainer3/VBoxContainer/Elaborate3" to="." method="_on_elaborate_3_pressed"]
+[node name="Elephant_Timer" type="Timer" parent="." unique_id=1139852448]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+
+[node name="Temp_Timer" type="Timer" parent="." unique_id=1391175297]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box1/VBoxContainer/Elaborate1" to="." method="_on_elaborate_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box2/VBoxContainer/Elaborate2" to="." method="_on_elaborate_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ConvoScreen/Dialogue_Box/Scroll/ClueContainer/Box3/VBoxContainer/Elaborate3" to="." method="_on_elaborate_3_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Elephant_Timer" to="." method="_on_elephant_timer_timeout"]
+[connection signal="timeout" from="Temp_Timer" to="." method="_on_temp_timer_timeout"]

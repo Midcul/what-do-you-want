@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://bex0xq4h0e2nd"]
+
+[ext_resource type="Texture2D" uid="uid://b5udoy1dv02f6" path="res://art/food/banoffe.png" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://nwdtbmp6su8t" path="res://scenes/level.gd" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://b6t5r00hqu4ue" path="res://art/bg/restaurant.png" id="2_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://dbbu2jai85r2e" path="res://scenes/tablet.tscn" id="3_w8frs"]
+[ext_resource type="Texture2D" uid="uid://dl345ugvmi3us" path="res://art/ui/button_white.png" id="5_2r41h"]
+[ext_resource type="PackedScene" uid="uid://cfhia44io63sm" path="res://scenes/player.tscn" id="5_ppgk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i7tk"]
+size = Vector2(52, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd7ib"]
+size = Vector2(330.5, 167.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj53s"]
+size = Vector2(496, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nje8q"]
+size = Vector2(1153, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw7d2"]
+size = Vector2(21, 673)
+
+[node name="Level" type="Node2D" unique_id=2052457525]
+script = ExtResource("1_w7c3h")
+
+[node name="BG" type="TextureRect" parent="." unique_id=652106789]
+custom_minimum_size = Vector2(1152, 648)
+custom_maximum_size = Vector2(1152, 648)
+offset_right = 2360.0
+offset_bottom = 1640.0
+texture = ExtResource("2_mx8sn")
+
+[node name="Tablet_Button" type="TextureButton" parent="." unique_id=1565379225]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.5)
+offset_left = 1065.0
+offset_top = 15.0
+offset_right = 1132.0
+offset_bottom = 82.0
+texture_normal = ExtResource("1_2q6dc")
+stretch_mode = 0
+
+[node name="Tablet" parent="." unique_id=1349250485 instance=ExtResource("3_w8frs")]
+unique_name_in_owner = true
+
+[node name="Orders" type="Node2D" parent="." unique_id=1097370960]
+unique_name_in_owner = true
+position = Vector2(581, 136)
+
+[node name="Tray1" type="TextureRect" parent="Orders" unique_id=140306056]
+offset_left = -212.0
+offset_top = -23.0
+offset_right = -152.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray2" type="TextureRect" parent="Orders" unique_id=943227691]
+offset_left = -122.0
+offset_top = -23.0
+offset_right = -62.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray3" type="TextureRect" parent="Orders" unique_id=816480182]
+offset_left = -32.0
+offset_top = -23.0
+offset_right = 28.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray4" type="TextureRect" parent="Orders" unique_id=375711323]
+offset_left = 58.0
+offset_top = -23.0
+offset_right = 118.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Tray5" type="TextureRect" parent="Orders" unique_id=273960169]
+offset_left = 148.0
+offset_top = -23.0
+offset_right = 208.0
+offset_bottom = 17.0
+texture = ExtResource("5_2r41h")
+
+[node name="Marker1" type="Marker2D" parent="Orders" unique_id=1628990620]
+unique_name_in_owner = true
+position = Vector2(-182, -3)
+
+[node name="Area2D" type="Area2D" parent="Orders/Marker1" unique_id=529990602 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker1/Area2D" unique_id=729904652]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
+[node name="Marker2" type="Marker2D" parent="Orders" unique_id=2016801385]
+unique_name_in_owner = true
+position = Vector2(-92, -3)
+
+[node name="Area2D" type="Area2D" parent="Orders/Marker2" unique_id=592923839 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker2/Area2D" unique_id=1411413297]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
+[node name="Marker3" type="Marker2D" parent="Orders" unique_id=1866879084]
+unique_name_in_owner = true
+position = Vector2(-2, -3)
+
+[node name="Area2D" type="Area2D" parent="Orders/Marker3" unique_id=1371135241 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker3/Area2D" unique_id=1032231889]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
+[node name="Marker4" type="Marker2D" parent="Orders" unique_id=412635906]
+unique_name_in_owner = true
+position = Vector2(88, -3)
+
+[node name="Area2D" type="Area2D" parent="Orders/Marker4" unique_id=53840746 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker4/Area2D" unique_id=1375193985]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
+[node name="Marker5" type="Marker2D" parent="Orders" unique_id=1853031477]
+unique_name_in_owner = true
+position = Vector2(178, -3)
+
+[node name="Area2D" type="Area2D" parent="Orders/Marker5" unique_id=109327723 groups=["tray"]]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker5/Area2D" unique_id=1270620833]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7i7tk")
+
+[node name="Seats" type="Node2D" parent="." unique_id=1151838283]
+unique_name_in_owner = true
+
+[node name="Seat1" type="Marker2D" parent="Seats" unique_id=1357077862]
+position = Vector2(73, 277)
+
+[node name="Seat2" type="Marker2D" parent="Seats" unique_id=885464487]
+position = Vector2(347, 277)
+
+[node name="Seat3" type="Marker2D" parent="Seats" unique_id=240835061]
+position = Vector2(73, 568)
+
+[node name="Seat4" type="Marker2D" parent="Seats" unique_id=96511566]
+position = Vector2(347, 568)
+
+[node name="Seat5" type="Marker2D" parent="Seats" unique_id=257428609]
+position = Vector2(812, 277)
+
+[node name="Seat6" type="Marker2D" parent="Seats" unique_id=770211732]
+position = Vector2(1085, 277)
+
+[node name="Seat7" type="Marker2D" parent="Seats" unique_id=841274809]
+position = Vector2(812, 568)
+
+[node name="Seat8" type="Marker2D" parent="Seats" unique_id=166378812]
+position = Vector2(1085, 568)
+
+[node name="Player" parent="." unique_id=1897640557 instance=ExtResource("5_ppgk2")]
+unique_name_in_owner = true
+position = Vector2(552, 535)
+
+[node name="Barrier" type="StaticBody2D" parent="." unique_id=838736703]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier" unique_id=128812299]
+position = Vector2(159.75, 85.5)
+shape = SubResource("RectangleShape2D_xd7ib")
+
+[node name="Barrier2" type="StaticBody2D" parent="." unique_id=955815291]
+position = Vector2(74, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2" unique_id=1220792639]
+position = Vector2(916.5, 85.25)
+shape = SubResource("RectangleShape2D_xd7ib")
+
+[node name="Barrier3" type="StaticBody2D" parent="." unique_id=270350936]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier3" unique_id=1569838604]
+position = Vector2(575, 83.5)
+shape = SubResource("RectangleShape2D_aj53s")
+
+[node name="Barrier4" type="StaticBody2D" parent="." unique_id=64084181]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier4" unique_id=2103251200]
+position = Vector2(575.5, 658)
+shape = SubResource("RectangleShape2D_nje8q")
+
+[node name="Barrier5" type="StaticBody2D" parent="." unique_id=1541131977]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier5" unique_id=1990879459]
+position = Vector2(-9.5, 326.5)
+shape = SubResource("RectangleShape2D_hw7d2")
+
+[node name="Barrier6" type="StaticBody2D" parent="." unique_id=1094082833]
+position = Vector2(1172, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier6" unique_id=367983738]
+position = Vector2(-9.5, 326.5)
+shape = SubResource("RectangleShape2D_hw7d2")
+
+[node name="Timer" type="Timer" parent="." unique_id=1464272115]
+
+[node name="Results" type="CanvasLayer" parent="." unique_id=1765678785]
+
+[node name="BG" type="ColorRect" parent="Results" unique_id=444059940]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="Tablet_Button" to="." method="_on_tablet_button_mouse_entered"]
+[connection signal="mouse_exited" from="Tablet_Button" to="." method="_on_tablet_button_mouse_exited"]
+[connection signal="pressed" from="Tablet_Button" to="." method="_on_tablet_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

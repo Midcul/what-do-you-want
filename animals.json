@@ -1,0 +1,68 @@
+[
+	{
+		"Animal Name": "Pig",
+		"Names": ["Porky", "Hamlet", "Wilbur", "Porkchop", "Piglet", "Hamm"],
+		"Type": "Omnivore",
+		"Patience": 240.0,
+		"Image": "uid://kxle4hp7bmsl"
+	},
+	{
+		"Animal Name": "Bear",
+		"Names": ["Bearnstein", "Teddy", "Yogi", "Bjorn", "Magnus", "Chewbearca"],
+		"Type": "Omnivore",
+		"Patience": 120.0,
+		"Image": "uid://oqcam2p15nxb"
+	},
+	{
+		"Animal Name": "Fox",
+		"Names": ["Foxy", "Rusty", "Ginger", "Scarlet", "Scout", "Vixen"],
+		"Type": "Omnivore",
+		"Patience": 180.0,
+		"Image": "uid://d14j8qw6wunst"
+	},
+	{
+		"Animal Name": "Sloth",
+		"Names": ["Slowpoke", "Sid", "Hammock", "Moss", "Zen", "Gonzales"],
+		"Type": "Herbivore",
+		"Patience": 360.0,
+		"Image": "uid://0r13eyiyq02e"
+	},
+	{
+		"Animal Name": "Rabbit",
+		"Names": ["Willow", "Snowball", "Lola", "Zinnia", "Lottie", "Daisy"],
+		"Type": "Herbivore",
+		"Patience": 225.0,
+		"Image": "uid://42imuwrrd2e6"
+	},
+	{
+		"Animal Name": "Peacock",
+		"Names": ["Majesty", "Luna", "Stella", "Sylvana", "Aerielle", "Riana"],
+		"Type": "Omnivore",
+		"Patience": 180.0,
+		"Image": "uid://uy8jij5qxl4l",
+		"Correct": ["uid://kgp1637m7h5m", "uid://c5pq4qknopnfk"],
+		"Interact": ["uid://b8mq7thnqj4an", "uid://dd4jsmuet0se8", "uid://cgh11volq4m2r", "uid://doflhu3fwv1xn"],
+		"Wrong": ["uid://62g1sse0dkl4", "uid://dfxgrdgtxosv4"]
+	},
+	{
+		"Animal Name": "Panther",
+		"Names": ["Shadow", "Nyx", "Sable", "Fang", "Phantom", "Damien"],
+		"Type": "Carnivore",
+		"Patience": 210.0,
+		"Image": "uid://sxpnt6xib6r7"
+	},
+	{
+		"Animal Name": "Elephant",
+		"Names": ["Dumbo", "Elliot", "Peanut", "Tusk", "Asani", "Stampede"],
+		"Type": "Herbivore",
+		"Patience": 300.0,
+		"Image": "uid://csyjwymash816"
+	},
+	{
+		"Animal Name": "Crocodile",
+		"Names": ["Crocodilla", "Gustave", "Chomps", "Gatorade", "Lyle", "Cassius"],
+		"Type": "Carnivore",
+		"Patience": 180.0,
+		"Image": "uid://b0ns3r3tpxiot"
+	}
+]
