@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://cnou7fieyp0al"]
 
 [ext_resource type="Script" uid="uid://c13h87bydl1du" path="res://scenes/title_screen_ui.gd" id="1_c1yp6"]
-[ext_resource type="Texture2D" uid="uid://byoh1ua1soea" path="res://icon.svg" id="1_kpeos"]
+[ext_resource type="Texture2D" uid="uid://ckf1il7s18bd6" path="res://art/bg/title_screen.png" id="2_c1yp6"]
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=977136680]
 script = ExtResource("1_c1yp6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=130682996]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c1yp6")
+expand_mode = 1
 
 [node name="TitleLeftSideControl" type="SplitContainer" parent="." unique_id=1431284913]
 clip_contents = true
@@ -20,6 +29,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TitleLabel" type="Label" parent="TitleLeftSideControl/TitleControl" unique_id=1018375739]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +43,7 @@ vertical_alignment = 1
 metadata/_edit_group_ = true
 
 [node name="TitleTexturePlaceholder" type="TextureRect" parent="TitleLeftSideControl/TitleControl" unique_id=1668769803]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,52 +52,57 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="TitleButtonsControl" type="SplitContainer" parent="TitleLeftSideControl" unique_id=114646515]
+[node name="TitleButtonsControl" type="SplitContainer" parent="." unique_id=114646515]
 custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
+offset_left = 164.0
+offset_top = 366.0
+offset_right = 503.0
+offset_bottom = 616.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
 dragging_enabled = false
 vertical = true
-metadata/_edit_group_ = true
 
-[node name="TitlePlayButton" type="Button" parent="TitleLeftSideControl/TitleButtonsControl" unique_id=834965464]
+[node name="TitlePlayButton" type="Button" parent="TitleButtonsControl" unique_id=834965464]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
-metadata/_edit_group_ = true
 
-[node name="TitleQuitButton" type="Button" parent="TitleLeftSideControl/TitleButtonsControl" unique_id=592572390]
+[node name="CheckButton" type="CheckButton" parent="TitleButtonsControl/TitlePlayButton" unique_id=1384973401]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 13.0
+offset_right = 449.0
+offset_bottom = 37.0
+scale = Vector2(2, 2)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TitleButtonsControl/TitlePlayButton/CheckButton" unique_id=1350247831]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 23.5
+offset_right = 59.0
+offset_bottom = 63.5
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Skip Tutorial?"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="TitleQuitButton" type="Button" parent="TitleButtonsControl" unique_id=592572390]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 text = "QUIT
 "
-metadata/_edit_group_ = true
 
-[node name="TitleRightSideControl" type="Control" parent="." unique_id=391314795]
-layout_mode = 3
-anchor_left = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-pivot_offset_ratio = Vector2(1, 0)
-
-[node name="TitlePortraitPlaceholder" type="TextureRect" parent="TitleRightSideControl" unique_id=238943336]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_kpeos")
-metadata/_edit_group_ = true
-
-[connection signal="pressed" from="TitleLeftSideControl/TitleButtonsControl/TitlePlayButton" to="." method="_on_title_play_button_pressed"]
-[connection signal="pressed" from="TitleLeftSideControl/TitleButtonsControl/TitleQuitButton" to="." method="_on_title_quit_button_pressed"]
+[connection signal="pressed" from="TitleButtonsControl/TitlePlayButton" to="." method="_on_title_play_button_pressed"]
+[connection signal="toggled" from="TitleButtonsControl/TitlePlayButton/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="TitleButtonsControl/TitleQuitButton" to="." method="_on_title_quit_button_pressed"]

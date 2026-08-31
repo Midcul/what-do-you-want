@@ -5,7 +5,7 @@ const color = ['White', 'Green', 'Red', 'Yellow']
 const composition = ['Handheld', 'Medley', 'Pasta', 'Soup']
 const taste = ['Cheesy', 'Fishy', 'Meaty', 'Veggie']
 
-func generate_sublist(tags) -> Array:
+func generate_sublist(tags, filter_txt) -> Array:
 	var matches = []
 	for value in menu.values():
 		var skipped
@@ -14,7 +14,8 @@ func generate_sublist(tags) -> Array:
 			if tag not in traits:
 				skipped = true
 		if not skipped:
-			matches.append(value['Dish Name'])
+			if filter_txt == '' or filter_txt.to_lower() in value['Dish Name'].to_lower():
+				matches.append(value['Dish Name'])
 	return matches
 
 func generate_positive_quadruplet_from_dishes() -> Array[String]:

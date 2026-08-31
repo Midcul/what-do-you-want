@@ -4,6 +4,7 @@
 
 [node name="PauseUI" type="CanvasLayer" unique_id=1897717807]
 process_mode = 2
+layer = 99
 script = ExtResource("1_qunyi")
 
 [node name="PauseUIControl" type="Control" parent="." unique_id=1564448236]
@@ -22,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.050980393, 0.10980392, 0.14901961, 0.49019608)
+color = Color(0.2791813, 0.23426434, 0.27806467, 1)
 
 [node name="PauseUILabel" type="Label" parent="PauseUIControl" unique_id=395427879]
 layout_mode = 1
@@ -62,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 offset_transform_visual_only = false
-split_offsets = PackedInt32Array(0, 0, 0)
+split_offsets = PackedInt32Array(0, 0, 0, 0)
 dragging_enabled = false
 vertical = true
 metadata/_edit_group_ = true
@@ -93,12 +94,40 @@ dragging_enabled = false
 [node name="PauseVolumeLabel" type="Label" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl" unique_id=1653744528]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Volume"
+text = "Music"
+horizontal_alignment = 1
 
-[node name="PauseVolumeSlider" type="HSlider" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl" unique_id=1883182524]
+[node name="Music_Slider" type="HSlider" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl" unique_id=1883182524]
+unique_name_in_owner = true
 layout_mode = 2
+max_value = 2.5
+step = 0.25
+tick_count = 11
+ticks_position = 3
+
+[node name="PauseVolumeControl2" type="VSplitContainer" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer" unique_id=828593045]
+layout_mode = 2
+size_flags_vertical = 3
+dragging_enabled = false
+
+[node name="PauseVolumeLabel" type="Label" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl2" unique_id=628113050]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Sfx"
+horizontal_alignment = 1
+
+[node name="Sfx_Slider" type="HSlider" parent="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl2" unique_id=988149706]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.2
+tick_count = 11
+ticks_position = 3
 
 [connection signal="pressed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseResumeButton" to="." method="_on_pause_resume_button_pressed"]
 [connection signal="pressed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseRestartButton" to="." method="_on_pause_restart_button_pressed"]
 [connection signal="pressed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseQuitButton" to="." method="_on_pause_quit_button_pressed"]
-[connection signal="value_changed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl/PauseVolumeSlider" to="." method="_on_pause_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl/Music_Slider" to="." method="_on_pause_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl/Music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl2/Sfx_Slider" to="." method="_on_pause_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseUIControl/PauseUIButtonControl/PauseUIButtonContainer/PauseVolumeControl2/Sfx_Slider" to="." method="_on_sfx_slider_value_changed"]

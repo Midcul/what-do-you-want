@@ -3,42 +3,63 @@
 		"Animal Name": "Pig",
 		"Names": ["Porky", "Hamlet", "Wilbur", "Porkchop", "Piglet", "Hamm"],
 		"Type": "Omnivore",
-		"Patience": 240.0,
-		"Image": "uid://kxle4hp7bmsl"
+		"Patience": 160.0,
+		"Info": "This customer wants to try everything! ... too bad that’s not how this works",
+		"Image": "uid://kxle4hp7bmsl",
+		"Correct": ["uid://dsl1pc04xy0ee", "uid://c2kpj2quej27j"],
+		"Interact": ["uid://dosgjsbpvjyqh", "uid://bt1jxppyhr2vu", "uid://ballcrkkl6fpy", "uid://dku8gyhyc6i51"],
+		"Wrong": ["uid://cmcepti6qxpi1", "uid://bwe57t25ot4af"]
 	},
 	{
 		"Animal Name": "Bear",
 		"Names": ["Bearnstein", "Teddy", "Yogi", "Bjorn", "Magnus", "Chewbearca"],
 		"Type": "Omnivore",
-		"Patience": 120.0,
-		"Image": "uid://oqcam2p15nxb"
+		"Patience": 80.0,
+		"Info": "Watch out! This customer’s here for one thing and one thing only. Don’t test their patience!",
+		"Image": "uid://oqcam2p15nxb",
+		"Correct": ["uid://dmqatfc576rk5", "uid://d1n7dtm4adufr"],
+		"Interact": ["uid://c8wnh6e8eaqfy", "uid://dif532smph3lh", "uid://c8f1aurnjcjc2", "uid://dllheoea1ewfa"],
+		"Wrong": ["uid://dbhcmpdpr8vny", "uid://x55j1acqge8w"]
 	},
 	{
 		"Animal Name": "Fox",
 		"Names": ["Foxy", "Rusty", "Ginger", "Scarlet", "Scout", "Vixen"],
 		"Type": "Omnivore",
-		"Patience": 180.0,
-		"Image": "uid://d14j8qw6wunst"
+		"Patience": 120.0,
+		"Info": "What do you get when you cross a sloth, pig, rabbit, crocodile, and elephant together? This customer, somehow.",
+		"Image": "uid://d14j8qw6wunst",
+		"Correct": ["uid://b5ibqry2sio3j", "uid://y660dt6yu2ba"],
+		"Interact": ["uid://vin2w0qpjy7b", "uid://b4yu8f7c8e1hw", "uid://dojqmi3bo3cfq", "uid://c4i3dbo3nwd1q"],
+		"Wrong": ["uid://brjm548ls6mgi", "uid://tooci5nmfwnm"]
 	},
 	{
 		"Animal Name": "Sloth",
 		"Names": ["Slowpoke", "Sid", "Hammock", "Moss", "Zen", "Gonzales"],
 		"Type": "Herbivore",
-		"Patience": 360.0,
-		"Image": "uid://0r13eyiyq02e"
+		"Patience": 240.0,
+		"Info": "A slow but very patient customer. They might be the only one that knows exactly what they want... if only they knew what the name of the dish was.",
+		"Image": "uid://0r13eyiyq02e",
+		"Correct": ["uid://bhavi6nk1pdss", "uid://265d3buym4xd"],
+		"Interact": ["uid://dj51rnx6wmpqt", "uid://beenefu3b8b0m", "uid://b55sy2i37abku", "uid://b0p3ei473rkar", "uid://dt7mkxrl8r50j"],
+		"Wrong": ["uid://dj0cwlpavjf1k", "uid://cts7fjiiqyl8m"]
 	},
 	{
 		"Animal Name": "Rabbit",
 		"Names": ["Willow", "Snowball", "Lola", "Zinnia", "Lottie", "Daisy"],
 		"Type": "Herbivore",
-		"Patience": 225.0,
-		"Image": "uid://42imuwrrd2e6"
+		"Patience": 150.0,
+		"Info": "Please stop talking. Just say what your order is.",
+		"Image": "uid://42imuwrrd2e6",
+		"Correct": ["uid://cbmlotsckymj0", "uid://dmoe5o2w6skm1", "uid://dw4n1s48lgc4v"],
+		"Interact": ["uid://brgs4hi77apvk", "uid://cog24iu01mqj2", "uid://d4cwe3x0tu8m", "uid://bec4n6ylqgvo4", "uid://1ifvyjygo4ha"],
+		"Wrong": ["uid://dxuivqx6lbkey", "uid://cfv3to1scn2uq"]
 	},
 	{
 		"Animal Name": "Peacock",
 		"Names": ["Majesty", "Luna", "Stella", "Sylvana", "Aerielle", "Riana"],
 		"Type": "Omnivore",
-		"Patience": 180.0,
+		"Patience": 120.0,
+		"Info": "A customer of vanity, they’ll make sure they are served first - or you’re going to hear about it.",
 		"Image": "uid://uy8jij5qxl4l",
 		"Correct": ["uid://kgp1637m7h5m", "uid://c5pq4qknopnfk"],
 		"Interact": ["uid://b8mq7thnqj4an", "uid://dd4jsmuet0se8", "uid://cgh11volq4m2r", "uid://doflhu3fwv1xn"],
@@ -48,21 +69,33 @@
 		"Animal Name": "Panther",
 		"Names": ["Shadow", "Nyx", "Sable", "Fang", "Phantom", "Damien"],
 		"Type": "Carnivore",
-		"Patience": 210.0,
-		"Image": "uid://sxpnt6xib6r7"
+		"Patience": 140.0,
+		"Info": "Sometimes they know what they want, sometimes they don’t. Either way, they’re still a customer.",
+		"Image": "uid://sxpnt6xib6r7",
+		"Correct": ["uid://dvnug1pi6r3fe", "uid://dixglafi4fdy"],
+		"Interact": ["uid://hdkwud3cymor", "uid://k8oh7dw24jve", "uid://1ytl86bsje5m", "uid://dck6lv3v2xpej"],
+		"Wrong": ["uid://cvyh6fla5bk1s", "uid://c0sqe2eilqo6t"]
 	},
 	{
 		"Animal Name": "Elephant",
 		"Names": ["Dumbo", "Elliot", "Peanut", "Tusk", "Asani", "Stampede"],
 		"Type": "Herbivore",
-		"Patience": 300.0,
-		"Image": "uid://csyjwymash816"
+		"Patience": 200.0,
+		"Info": "Despite being a big foodie, this customer takes their time figuring out their order.",
+		"Image": "uid://csyjwymash816",
+		"Correct": ["uid://emwp6mj3emlh", "uid://dkpv2r7q63pt0"],
+		"Interact": ["uid://doa535c5x36ug", "uid://fanoa7ywfuy0", "uid://7fxgcjk17nkg", "uid://blbsqu0304mig"],
+		"Wrong": ["uid://c420soxcmgurd", "uid://caw3p6fu7p6i8"]
 	},
 	{
 		"Animal Name": "Crocodile",
 		"Names": ["Crocodilla", "Gustave", "Chomps", "Gatorade", "Lyle", "Cassius"],
 		"Type": "Carnivore",
 		"Patience": 180.0,
-		"Image": "uid://b0ns3r3tpxiot"
+		"Info": "This customer knows what they don’t want - figuring out what they do want is your problem now.",
+		"Image": "uid://b0ns3r3tpxiot",
+		"Correct": ["uid://bsy82ha21j4mq", "uid://bjfv13pi25nga", "uid://b13itkre6nasw"],
+		"Interact": ["uid://6m7uana4aslf", "uid://clbpwa7vi41kx", "uid://dxj3hufiqp6d1", "uid://d1n0632bxyk65"],
+		"Wrong": ["uid://5sr5qg72568", "uid://dtp87i8us8j47", "uid://viuonjiitexa"]
 	}
 ]

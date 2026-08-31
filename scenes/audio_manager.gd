@@ -19,10 +19,9 @@ extends AudioStreamPlayer
 
 func _ready() -> void:
 	music.volume_db = linear_to_db(0.5)
-	sfx.volume_db = linear_to_db(0.5)
+	sfx.volume_db = linear_to_db(1.0)
+	steps.volume_db = linear_to_db(1.0)
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	randomize_music()
-	#play_music(title)
 	
 func play_music(stream: AudioStream, offset = 0) -> void:
 	if music.get_child_count() > 0:
@@ -76,6 +75,13 @@ func set_sfx_volume(value: float) -> void:
 	sfx.volume_db = linear_to_db(value)
 	for children in sfx.get_children():
 		children.volume_db = sfx.volume_db
-
+		
+func edit_music_vol(val):
+	music.volume_db = linear_to_db(val)
+	
+func edit_sound_vol(val):
+	sfx.volume_db = linear_to_db(val)
+	steps.volume_db = linear_to_db(val)
+	
 func _on_music_finished() -> void:
 	randomize_music()

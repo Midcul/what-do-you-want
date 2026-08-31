@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4l8qivfx2o5l" path="res://art/ui/button.png" id="3_suit2"]
 [ext_resource type="Texture2D" uid="uid://dqdi43br2e4j2" path="res://art/ui/tablet_screen.png" id="5_1e7px"]
 [ext_resource type="Texture2D" uid="uid://du7ai1l24vdyo" path="res://art/ui/filter.png" id="5_nk2fr"]
+[ext_resource type="Texture2D" uid="uid://bnqbpvkelf687" path="res://art/ui/Cross.png" id="7_7serw"]
 
 [sub_resource type="TileSet" id="TileSet_xd7ib"]
 
@@ -14,6 +15,7 @@ script = ExtResource("1_2qyfy")
 
 [node name="Canvas" type="CanvasLayer" parent="." unique_id=1977676398]
 unique_name_in_owner = true
+layer = 2
 visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Canvas" unique_id=1479559167]
@@ -80,6 +82,16 @@ text = "Food 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Food_Filter" type="LineEdit" parent="Canvas" unique_id=922929586]
+unique_name_in_owner = true
+offset_left = 574.0
+offset_top = 65.0
+offset_right = 968.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Enter food name here..."
+max_length = 40
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Canvas" unique_id=994583541]
 offset_left = 120.0
 offset_top = 163.0
@@ -132,7 +144,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -4.000061
-offset_top = 58.0
+offset_top = 114.0
 offset_right = 461.0
 offset_bottom = -74.0
 grow_horizontal = 2
@@ -215,6 +227,73 @@ placeholder_text = "Search for food item here"
 emoji_menu_enabled = false
 drag_and_drop_selection_enabled = false
 
+[node name="Checks" type="HBoxContainer" parent="Canvas" unique_id=631602060]
+unique_name_in_owner = true
+visible = false
+offset_left = 135.0
+offset_top = 61.0
+offset_right = 882.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 12
+
+[node name="Box1" type="HBoxContainer" parent="Canvas/Checks" unique_id=340211991]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="Im1" type="TextureRect" parent="Canvas/Checks/Box1" unique_id=859015430]
+custom_minimum_size = Vector2(32, 25)
+layout_mode = 2
+texture = ExtResource("7_7serw")
+expand_mode = 1
+
+[node name="Check1" type="RichTextLabel" parent="Canvas/Checks/Box1" unique_id=262224936]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Pepperoni Pizza"
+fit_content = true
+
+[node name="Box2" type="HBoxContainer" parent="Canvas/Checks" unique_id=452022879]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="Im2" type="TextureRect" parent="Canvas/Checks/Box2" unique_id=915201640]
+custom_minimum_size = Vector2(32, 25)
+layout_mode = 2
+texture = ExtResource("7_7serw")
+expand_mode = 1
+
+[node name="Check2" type="RichTextLabel" parent="Canvas/Checks/Box2" unique_id=1694577501]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Escargot"
+fit_content = true
+
+[node name="Box3" type="HBoxContainer" parent="Canvas/Checks" unique_id=963401825]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="Im3" type="TextureRect" parent="Canvas/Checks/Box3" unique_id=1610251106]
+custom_minimum_size = Vector2(32, 25)
+layout_mode = 2
+texture = ExtResource("7_7serw")
+expand_mode = 1
+
+[node name="Check3" type="RichTextLabel" parent="Canvas/Checks/Box3" unique_id=1023511053]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Shivit Oshi"
+fit_content = true
+
 [node name="Filter_Layer" type="CanvasLayer" parent="." unique_id=1425394937]
 unique_name_in_owner = true
 layer = 2
@@ -254,9 +333,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -225.0
-offset_top = -158.0
+offset_top = -175.0
 offset_right = 225.0
-offset_bottom = -88.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("3_suit2")
@@ -276,6 +355,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="text_changed" from="Canvas/Food_Filter" to="." method="_on_food_filter_text_changed"]
 [connection signal="pressed" from="Canvas/Order" to="." method="_on_order_pressed"]
 [connection signal="pressed" from="Canvas/Exit" to="." method="_on_exit_pressed"]
 [connection signal="mouse_entered" from="Canvas/Filter" to="." method="_on_filter_mouse_entered"]

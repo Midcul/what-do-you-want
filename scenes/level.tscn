@@ -14,12 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://nlarqn5qkb4f" path="res://art/ui/box.png" id="8_b121j"]
 [ext_resource type="Texture2D" uid="uid://dexbdloeg6a6y" path="res://art/ui/next_day.png" id="9_8c41q"]
 [ext_resource type="Texture2D" uid="uid://2oibyv8e83iv" path="res://art/ui/retry.png" id="10_olg7q"]
+[ext_resource type="PackedScene" uid="uid://bee3w7t4r40kf" path="res://scenes/customer_box_info.tscn" id="15_wc255"]
+[ext_resource type="Texture2D" uid="uid://bxgb7yet2g74j" path="res://art/ui/box_filled.png" id="16_arp2o"]
+[ext_resource type="Texture2D" uid="uid://bwqt4e1yjqbv1" path="res://art/bg/win.png" id="17_gunhw"]
+[ext_resource type="PackedScene" uid="uid://73jm5qjy52vq" path="res://addons/dialogue_manager/example_balloon/example_balloon.tscn" id="17_ux5qa"]
+[ext_resource type="Texture2D" uid="uid://bkyamnu7tditi" path="res://art/ui/the_end.png" id="18_8gofh"]
+[ext_resource type="Resource" uid="uid://1pod8lqgru26" path="res://tutorial.dialogue" id="18_82cfe"]
+[ext_resource type="PackedScene" uid="uid://bg4amgx238vg8" path="res://scenes/PauseUI.tscn" id="21_h6wmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i7tk"]
 size = Vector2(52, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd7ib"]
-size = Vector2(330.5, 167.5)
+size = Vector2(333.75, 167.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj53s"]
 size = Vector2(496, 171)
@@ -29,6 +36,9 @@ size = Vector2(1153, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw7d2"]
 size = Vector2(21, 673)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr5wm"]
+size = Vector2(147, 78)
 
 [node name="Level" type="Node2D" unique_id=2052457525]
 script = ExtResource("1_w7c3h")
@@ -136,9 +146,9 @@ expand_mode = 1
 [node name="Table4" type="TextureRect" parent="BG" unique_id=2028132546]
 layout_mode = 0
 offset_left = 875.0
-offset_top = 206.0
+offset_top = 219.0
 offset_right = 1027.0
-offset_bottom = 306.0
+offset_bottom = 319.0
 texture = ExtResource("4_8iemx")
 expand_mode = 1
 
@@ -184,9 +194,6 @@ scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("6_fpun6")
 texture_hover = ExtResource("7_wc255")
 stretch_mode = 0
-
-[node name="Tablet" parent="." unique_id=1349250485 instance=ExtResource("3_w8frs")]
-unique_name_in_owner = true
 
 [node name="Orders" type="Node2D" parent="." unique_id=1097370960]
 unique_name_in_owner = true
@@ -236,12 +243,13 @@ expand_mode = 1
 unique_name_in_owner = true
 position = Vector2(-182, -3)
 
-[node name="Area2D" type="Area2D" parent="Orders/Marker1" unique_id=529990602 groups=["tray"]]
+[node name="Area1" type="Area2D" parent="Orders/Marker1" unique_id=529990602 groups=["tray"]]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker1/Area2D" unique_id=729904652]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker1/Area1" unique_id=729904652]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_7i7tk")
 
@@ -249,12 +257,13 @@ shape = SubResource("RectangleShape2D_7i7tk")
 unique_name_in_owner = true
 position = Vector2(-92, -3)
 
-[node name="Area2D" type="Area2D" parent="Orders/Marker2" unique_id=592923839 groups=["tray"]]
+[node name="Area2" type="Area2D" parent="Orders/Marker2" unique_id=592923839 groups=["tray"]]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker2/Area2D" unique_id=1411413297]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker2/Area2" unique_id=1411413297]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_7i7tk")
 
@@ -262,12 +271,13 @@ shape = SubResource("RectangleShape2D_7i7tk")
 unique_name_in_owner = true
 position = Vector2(-2, -3)
 
-[node name="Area2D" type="Area2D" parent="Orders/Marker3" unique_id=1371135241 groups=["tray"]]
+[node name="Area3" type="Area2D" parent="Orders/Marker3" unique_id=1371135241 groups=["tray"]]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker3/Area2D" unique_id=1032231889]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker3/Area3" unique_id=1032231889]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_7i7tk")
 
@@ -275,12 +285,13 @@ shape = SubResource("RectangleShape2D_7i7tk")
 unique_name_in_owner = true
 position = Vector2(88, -3)
 
-[node name="Area2D" type="Area2D" parent="Orders/Marker4" unique_id=53840746 groups=["tray"]]
+[node name="Area4" type="Area2D" parent="Orders/Marker4" unique_id=53840746 groups=["tray"]]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker4/Area2D" unique_id=1375193985]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker4/Area4" unique_id=1375193985]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_7i7tk")
 
@@ -288,12 +299,13 @@ shape = SubResource("RectangleShape2D_7i7tk")
 unique_name_in_owner = true
 position = Vector2(178, -3)
 
-[node name="Area2D" type="Area2D" parent="Orders/Marker5" unique_id=109327723 groups=["tray"]]
+[node name="Area5" type="Area2D" parent="Orders/Marker5" unique_id=109327723 groups=["tray"]]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker5/Area2D" unique_id=1270620833]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orders/Marker5/Area5" unique_id=1270620833]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_7i7tk")
 
@@ -301,28 +313,31 @@ shape = SubResource("RectangleShape2D_7i7tk")
 unique_name_in_owner = true
 
 [node name="Seat1" type="Marker2D" parent="Seats" unique_id=1357077862]
-position = Vector2(73, 255)
+position = Vector2(77, 255)
 
 [node name="Seat2" type="Marker2D" parent="Seats" unique_id=885464487]
 position = Vector2(347, 255)
 
 [node name="Seat3" type="Marker2D" parent="Seats" unique_id=240835061]
-position = Vector2(73, 507)
+position = Vector2(77, 507)
 
 [node name="Seat4" type="Marker2D" parent="Seats" unique_id=96511566]
 position = Vector2(347, 507)
 
 [node name="Seat5" type="Marker2D" parent="Seats" unique_id=257428609]
-position = Vector2(812, 255)
+position = Vector2(815, 255)
 
 [node name="Seat6" type="Marker2D" parent="Seats" unique_id=770211732]
 position = Vector2(1085, 255)
 
 [node name="Seat7" type="Marker2D" parent="Seats" unique_id=841274809]
-position = Vector2(812, 507)
+position = Vector2(815, 507)
 
 [node name="Seat8" type="Marker2D" parent="Seats" unique_id=166378812]
 position = Vector2(1085, 507)
+
+[node name="Tablet" parent="." unique_id=1349250485 instance=ExtResource("3_w8frs")]
+unique_name_in_owner = true
 
 [node name="Player" parent="." unique_id=1897640557 instance=ExtResource("5_ppgk2")]
 unique_name_in_owner = true
@@ -331,14 +346,14 @@ position = Vector2(552, 535)
 [node name="Barrier" type="StaticBody2D" parent="." unique_id=838736703]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier" unique_id=128812299]
-position = Vector2(159.75, 85.5)
+position = Vector2(160.75, 85.375)
 shape = SubResource("RectangleShape2D_xd7ib")
 
 [node name="Barrier2" type="StaticBody2D" parent="." unique_id=955815291]
 position = Vector2(74, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2" unique_id=1220792639]
-position = Vector2(916.5, 85.25)
+position = Vector2(915.875, 85.25)
 shape = SubResource("RectangleShape2D_xd7ib")
 
 [node name="Barrier3" type="StaticBody2D" parent="." unique_id=270350936]
@@ -366,6 +381,33 @@ position = Vector2(1172, 5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier6" unique_id=367983738]
 position = Vector2(-9.5, 326.5)
 shape = SubResource("RectangleShape2D_hw7d2")
+
+[node name="Barrier7" type="StaticBody2D" parent="." unique_id=554292556]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier7" unique_id=1799459123]
+position = Vector2(211.5, 261)
+shape = SubResource("RectangleShape2D_fr5wm")
+
+[node name="Barrier8" type="StaticBody2D" parent="." unique_id=2142935462]
+position = Vector2(0, 237)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier8" unique_id=1945031618]
+position = Vector2(211.5, 263)
+shape = SubResource("RectangleShape2D_fr5wm")
+
+[node name="Barrier9" type="StaticBody2D" parent="." unique_id=876606393]
+position = Vector2(740, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier9" unique_id=310469573]
+position = Vector2(211.5, 260)
+shape = SubResource("RectangleShape2D_fr5wm")
+
+[node name="Barrier10" type="StaticBody2D" parent="." unique_id=1374167926]
+position = Vector2(740, 237)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier10" unique_id=1429792103]
+position = Vector2(211.5, 263)
+shape = SubResource("RectangleShape2D_fr5wm")
 
 [node name="Timer" type="Timer" parent="." unique_id=1464272115]
 unique_name_in_owner = true
@@ -463,9 +505,112 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_olg7q")
 stretch_mode = 0
 
+[node name="Day_Start" type="CanvasLayer" parent="." unique_id=676572255]
+unique_name_in_owner = true
+visible = false
+
+[node name="Title" type="RichTextLabel" parent="Day_Start" unique_id=553840366]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 252.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+text = "New Customers!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="New_Day_Customers" type="HBoxContainer" parent="Day_Start" unique_id=1501918187]
+offset_left = 80.999985
+offset_top = 62.999996
+offset_right = 1305.0
+offset_bottom = 635.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 12
+
+[node name="Customer1" parent="Day_Start/New_Day_Customers" unique_id=896027808 instance=ExtResource("15_wc255")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Customer2" parent="Day_Start/New_Day_Customers" unique_id=1977928300 instance=ExtResource("15_wc255")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Customer3" parent="Day_Start/New_Day_Customers" unique_id=1365816225 instance=ExtResource("15_wc255")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Continue" type="TextureButton" parent="Day_Start" unique_id=1491225242]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.85)
+self_modulate = Color(1, 1, 1, 0.66)
+offset_left = 360.0
+offset_top = 540.0
+offset_right = 781.0
+offset_bottom = 638.0
+texture_normal = ExtResource("16_arp2o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Day_Start/Continue" unique_id=1839873904]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Hooray..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ending" type="CanvasLayer" parent="." unique_id=1778372975]
+unique_name_in_owner = true
+layer = 4
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Ending" unique_id=961261818]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_gunhw")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="Ending" unique_id=1261478652]
+offset_left = 771.0
+offset_top = 466.0
+offset_right = 1605.0
+offset_bottom = 833.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("18_8gofh")
+
+[node name="ExampleBalloon" parent="." unique_id=38036521 instance=ExtResource("17_ux5qa")]
+unique_name_in_owner = true
+layer = 98
+visible = false
+dialogue_resource = ExtResource("18_82cfe")
+
+[node name="PauseUI" parent="." unique_id=1897717807 instance=ExtResource("21_h6wmr")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="mouse_entered" from="Tablet_Button" to="." method="_on_tablet_button_mouse_entered"]
 [connection signal="mouse_exited" from="Tablet_Button" to="." method="_on_tablet_button_mouse_exited"]
 [connection signal="pressed" from="Tablet_Button" to="." method="_on_tablet_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Results/Results_Box/Proceed" to="." method="_on_proceed_pressed"]
 [connection signal="pressed" from="Results/Results_Box/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Day_Start/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="Day_Start/Continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="pressed" from="Day_Start/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Ending/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="visibility_changed" from="ExampleBalloon" to="." method="_on_example_balloon_visibility_changed"]

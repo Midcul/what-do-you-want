@@ -1,5 +1,6 @@
 extends Node2D
 signal reduce_patience(time)
+signal done_talking
 
 @onready var ui = %CanvasLayer
 @onready var bar = %ProgressBar
@@ -203,7 +204,8 @@ func show_ui() -> void:
 		
 func _on_timer_timeout() -> void:
 	%Pic1.show()
-	%Elaborate1.show()
+	if not get_parent().is_tutorial:
+		%Elaborate1.show()
 	await get_tree().create_timer(0.5).timeout
 	if elephant_clues:
 		if not already_paused and randf() < 0.25:
@@ -216,7 +218,8 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	%Pic2.show()
-	%Elaborate2.show()
+	if not get_parent().is_tutorial:
+		%Elaborate2.show()
 	await get_tree().create_timer(0.5).timeout
 	if elephant_clues:
 		if not already_paused and randf() < 0.25:
@@ -229,7 +232,9 @@ func _on_timer_2_timeout() -> void:
 
 func _on_timer_3_timeout() -> void:
 	%Pic3.show()
-	%Elaborate3.show()
+	if not get_parent().is_tutorial:
+		%Elaborate3.show()
+	emit_signal("done_talking")
 
 func _on_elaborate_1_pressed() -> void:
 	%Elaborate1.hide()
@@ -240,7 +245,7 @@ func _on_elaborate_1_pressed() -> void:
 		show_ui()
 	else:
 		%Answer1.show()
-	emit_signal("reduce_patience", 10)
+	emit_signal("reduce_patience", 20)
 
 func _on_elaborate_2_pressed() -> void:
 	%Elaborate2.hide()
@@ -252,7 +257,7 @@ func _on_elaborate_2_pressed() -> void:
 		show_ui()
 	else:
 		%Answer2.show()
-	emit_signal("reduce_patience", 10)
+	emit_signal("reduce_patience", 20)
 
 func _on_elaborate_3_pressed() -> void:
 	%Elaborate3.hide()
@@ -264,7 +269,7 @@ func _on_elaborate_3_pressed() -> void:
 		show_ui()
 	else:
 		%Answer3.show()
-	emit_signal("reduce_patience", 10)
+	emit_signal("reduce_patience", 20)
 
 func _on_elephant_timer_timeout() -> void:
 	already_paused = true

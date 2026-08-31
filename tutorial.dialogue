@@ -1,0 +1,70 @@
+~ start
+Welcome back, valued Employee!
+Are you ready for another fulfilling day?
+...
+That’s what I like to hear!
+$> InitDishes.create_sloth()
+Oh! A customer!
+Go see what they’d like!
+$> InitDishes.tutorial_marker += 1
+=> END
+
+~ sloth_interact
+Did you catch all of that?
+Go ahead and open your ordering tablet! (Press "Tab" or click the icon in the top right)
+=> END
+
+~ tablet_opened
+Wow! I never realized we had so many items on the menu!
+Seems like we’ll need to filter through our items.
+Go ahead and click on the “Filter” function on your tablet!
+=> END
+
+~ tablet_filter
+What was it the customer wanted again?
+Something red, handheld, and meaty?
+=> END
+
+~ wrong_filter1
+That doesn't seem quite right.
+Wasn't it something red, handheld, and meaty?
+=> END
+
+~ chicken
+Oh! Looks like the customer wants fried chicken!
+Go ahead and order it, and the chefs’ll set it out as fast as possible!
+=> END
+
+~ served1
+Another customer is satisfied!
+$> InitDishes.create_pig()
+Speaking of another customer, looks like there’s someone new!
+=> END
+
+~ pig_interact
+Wow, this customer can’t seem to make up their mind!
+I bet they don’t even want any of those, but I’m sure we can figure out what they’re craving.
+Let’s take another look at the ordering tablet!
+$> InitDishes.tutorial_marker += 1
+=> END
+
+~ search
+Use the search bar to find the pepperoni pizza, escargot, and shivit oshi the customer asked for! Do make sure to note what tags are on each item!
+=> END
+
+~ search_done
+Pepperoni pizza is yellow, handheld, and meaty. Escargot is green, handheld, and fishy. Shivit oshi is green, pasta, and meaty.
+Looking at the overlapping tags here, I think the customer wants something green, handheld, and meaty! And I think we have just the item! Let's use the filter again.
+=> END
+
+~ wrong_filter2
+That doesn't seem quite right.
+Wasn't it something green, handheld, and meaty?
+=> END
+
+~ finish
+Way to go, champ!
+Seems like you’re ready to take on the day all by yourself!
+I’m sure you’ll figure it out if anyone new comes by!
+Best of luck!
+$> InitDishes.start_game()

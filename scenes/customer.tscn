@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqogf4td7b5oy" path="res://scenes/customer_ui.tscn" id="3_8qg4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfjk"]
-size = Vector2(62, 97)
+size = Vector2(62, 88)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd7ib"]
 radius = 33.0
@@ -25,7 +25,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_8qg4y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823843315]
-position = Vector2(1, -28.5)
+position = Vector2(1, -24)
 shape = SubResource("RectangleShape2D_ktfjk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1830783283 groups=["customer"]]
@@ -57,7 +57,6 @@ show_percentage = false
 unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
-autostart = true
 
 [node name="Customer_UI" parent="." unique_id=1248095599 instance=ExtResource("3_8qg4y")]
 unique_name_in_owner = true
